@@ -64,7 +64,7 @@ function createTree() {
             });
             topicLi.classList.add('active-item');
             
-            const path = `notes/${semester}/${subject}/${unit}/${topic}`;
+            const path = `${semester}/${subject}/${unit}/${topic}`;
             loadNote(path);
           };
           topicUl.appendChild(topicLi);
