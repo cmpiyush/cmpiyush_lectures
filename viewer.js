@@ -1,6 +1,6 @@
 // Define your structure manually or fetch from repo API
 const structure = {
-  "Semester I": {
+  "Semester 1": {
     "MSW 101": {
       "Unit-1": [
         "Goals and Functions of Social Work.md", 
@@ -30,65 +30,73 @@ const structure = {
       ]
     }
   },
-  "Semester II": {
+  "Semester 2": {
     "MSW 201": {
       "Unit 1": ["Community Organization.md"]
     }
+  },
+  "Semester 3": {
+    "MSW 301": {
+      "Unit 1": ["Example Note 1.md"]
+    }
+  },
+  "Semester 4": {
+    "MSW 401": {
+      "Unit 1": ["Example Note 1.md"]
+    }
   }
 };
+
+let currentSemester = "Semester 1";
 
 const navTree = document.getElementById('nav-tree');
 const noteDisplay = document.getElementById('note-display');
 
 function createTree() {
-  for (let semester in structure) {
-    const semLi = document.createElement('li');
-    semLi.classList.add('list-group-item', 'tree-item');
-    semLi.textContent = semester;
+  // Clear the navigation tree first
+  navTree.innerHTML = '';
+  
+  // Update the current semester display
+  document.getElementById('current-semester').textContent = currentSemester;
+  
+  // Only show subjects for the current semester
+  for (let subject in structure[currentSemester]) {
+    const subjLi = document.createElement('li');
+    subjLi.classList.add('list-group-item', 'tree-item');
+    subjLi.textContent = subject;
 
-    const subjUl = document.createElement('ul');
-    subjUl.classList.add('list-group', 'nested');
-    for (let subject in structure[semester]) {
-      const subjLi = document.createElement('li');
-      subjLi.classList.add('list-group-item', 'tree-item');
-      subjLi.textContent = subject;
+    const unitUl = document.createElement('ul');
+    unitUl.classList.add('list-group', 'nested');
+    for (let unit in structure[currentSemester][subject]) {
+      const unitLi = document.createElement('li');
+      unitLi.classList.add('list-group-item', 'tree-item');
+      unitLi.textContent = unit;
 
-      const unitUl = document.createElement('ul');
-      unitUl.classList.add('list-group', 'nested');
-      for (let unit in structure[semester][subject]) {
-        const unitLi = document.createElement('li');
-        unitLi.classList.add('list-group-item', 'tree-item');
-        unitLi.textContent = unit;
+      const topicUl = document.createElement('ul');
+      topicUl.classList.add('list-group', 'nested');
+      structure[currentSemester][subject][unit].forEach(topic => {
+        const topicLi = document.createElement('li');
+        topicLi.classList.add('list-group-item', 'tree-item', 'clickable');
+        topicLi.textContent = topic.replace('.md', '');
+        topicLi.onclick = () => {
+          // Highlight the selected item
+          document.querySelectorAll('.active-item').forEach(el => {
+            el.classList.remove('active-item');
+          });
+          topicLi.classList.add('active-item');
+          
+          const path = `${currentSemester}/${subject}/${unit}/${topic}`;
+          loadNote(path);
+        };
+        topicUl.appendChild(topicLi);
+      });
 
-        const topicUl = document.createElement('ul');
-        topicUl.classList.add('list-group', 'nested');
-        structure[semester][subject][unit].forEach(topic => {
-          const topicLi = document.createElement('li');
-          topicLi.classList.add('list-group-item', 'tree-item', 'clickable');
-          topicLi.textContent = topic.replace('.md', '');
-          topicLi.onclick = () => {
-            // Highlight the selected item
-            document.querySelectorAll('.active-item').forEach(el => {
-              el.classList.remove('active-item');
-            });
-            topicLi.classList.add('active-item');
-            
-            const path = `${semester}/${subject}/${unit}/${topic}`;
-            loadNote(path);
-          };
-          topicUl.appendChild(topicLi);
-        });
-
-        unitLi.appendChild(topicUl);
-        unitUl.appendChild(unitLi);
-      }
-
-      subjLi.appendChild(unitUl);
-      subjUl.appendChild(subjLi);
+      unitLi.appendChild(topicUl);
+      unitUl.appendChild(unitLi);
     }
 
-    semLi.appendChild(subjUl);
-    navTree.appendChild(semLi);
+    subjLi.appendChild(unitUl);
+    navTree.appendChild(subjLi);
   }
 
   // Add click handlers to expand/collapse tree items
@@ -120,4 +128,34 @@ async function loadNote(filePath) {
   }
 }
 
-createTree();
+// Function to change the current semester
+function changeSemester(semester) {
+  if (structure[semester]) {
+    currentSemester = semester;
+    createTree();
+    // Clear the note display
+    noteDisplay.innerHTML = '<p>Select a note to view it here.</p>';
+  }
+}
+
+// Add event listeners to semester links
+document.addEventListener('DOMContentLoaded', function() {
+  const semesterLinks = document.querySelectorAll('.nav-link[data-semester]');
+  semesterLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const semester = this.getAttribute('data-semester');
+      changeSemester(semester);
+      
+      // Update active state in navbar
+      semesterLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+  
+  // Set the first semester as active by default
+  semesterLinks[0].classList.add('active');
+  
+  // Initialize the tree
+  createTree();
+});
