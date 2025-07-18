@@ -1,52 +1,82 @@
-const navTree = document.getElementById('nav-tree');
-const noteDisplay = document.getElementById('note-display');
-
 // Define your structure manually or fetch from repo API
 const structure = {
-  "Sociology": {
-    "Unit1": ["Note1.md", "Note2.md"],
-    "Unit2": ["Note3.md"]
+  "Semester 1": {
+    "MSW 101": {
+      "Unit 1": ["Concept of Social Work.md", "Values of Social Work.md"],
+      "Unit 2": ["History of Social Work.md"]
+    },
+    "MSW 102": {
+      "Unit 1": ["Introduction to Psychology.md"]
+    },
+    "MSW 103": {
+      "Unit 1": [
+        "Social Research- Meaning and purpose.md", 
+        "Types of research-Pure, Applied, Basic, Action.md",
+        "Social Work Research- Meaning, Steps and its relevance to social work practice"
+      ],
+      "Unit 2": [
+        "Hypothesis-Meaning, Characteristics, Source and types", "Sampling Techniques.md",
+        "Sampling- Meaning, types and utility, reliability of sample, general considerations in the determination of sample size.md",
+      ]
+    }
   },
-  "Economics": {
-    "Unit1": ["NoteA.md"]
+  "Semester 2": {
+    "MSW 201": {
+      "Unit 1": ["Community Organization.md"]
+    }
   }
 };
 
+const navTree = document.getElementById('nav-tree');
+const noteDisplay = document.getElementById('note-display');
+
 function createTree() {
-  for (let subject in structure) {
-    const subjectLi = document.createElement('li');
-    subjectLi.textContent = subject;
+  for (let semester in structure) {
+    const semLi = document.createElement('li');
+    semLi.textContent = semester;
 
-    const unitUl = document.createElement('ul');
-    for (let unit in structure[subject]) {
-      const unitLi = document.createElement('li');
-      unitLi.textContent = unit;
+    const subjUl = document.createElement('ul');
+    for (let subject in structure[semester]) {
+      const subjLi = document.createElement('li');
+      subjLi.textContent = subject;
 
-      const noteUl = document.createElement('ul');
-      structure[subject][unit].forEach(note => {
-        const noteLi = document.createElement('li');
-        noteLi.textContent = note.replace('.md', '');
-        noteLi.onclick = () => loadNote(subject, unit, note);
-        noteUl.appendChild(noteLi);
-      });
+      const unitUl = document.createElement('ul');
+      for (let unit in structure[semester][subject]) {
+        const unitLi = document.createElement('li');
+        unitLi.textContent = unit;
 
-      unitLi.appendChild(noteUl);
-      unitUl.appendChild(unitLi);
+        const topicUl = document.createElement('ul');
+        structure[semester][subject][unit].forEach(topic => {
+          const topicLi = document.createElement('li');
+          topicLi.textContent = topic.replace('.md', '');
+          topicLi.onclick = () => {
+            const path = `${semester}/${subject}/${unit}/${topic}`;
+            loadNote(path);
+          };
+          topicUl.appendChild(topicLi);
+        });
+
+        unitLi.appendChild(topicUl);
+        unitUl.appendChild(unitLi);
+      }
+
+      subjLi.appendChild(unitUl);
+      subjUl.appendChild(subjLi);
     }
 
-    subjectLi.appendChild(unitUl);
-    navTree.appendChild(subjectLi);
+    semLi.appendChild(subjUl);
+    navTree.appendChild(semLi);
   }
 }
 
-async function loadNote(subject, unit, note) {
-  const url = `Subjects/${subject}/${unit}/${note}`;
+async function loadNote(filePath) {
   try {
-    const res = await fetch(url);
+    const res = await fetch(filePath);
+    if (!res.ok) throw new Error('Note not found');
     const md = await res.text();
     noteDisplay.innerHTML = marked.parse(md);
   } catch (err) {
-    noteDisplay.innerHTML = `<p>Error loading note: ${note}</p>`;
+    noteDisplay.innerHTML = `<p style="color:red;">Failed to load note: ${filePath}</p>`;
   }
 }
 
