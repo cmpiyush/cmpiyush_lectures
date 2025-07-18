@@ -1,12 +1,21 @@
 // Define your structure manually or fetch from repo API
 const structure = {
-  "Semester 1": {
+  "Semester I": {
     "MSW 101": {
-      "Unit 1": ["Concept of Social Work.md", "Values of Social Work.md"],
-      "Unit 2": ["History of Social Work.md"]
+      "Unit-1": [
+        "Goals and Functions of Social Work.md", 
+        "Principles, values and philosophy of  Social Work.md",
+        "System and Integrated Approach to  Social Work Practice.md",
+        "The Concept of Social Work.md"
+      ],
+      "Unit 2": [
+        "History of Social Work.md"
+      ]
     },
     "MSW 102": {
-      "Unit 1": ["Introduction to Psychology.md"]
+      "Unit 1": [
+        "Introduction to Psychology.md"
+      ]
     },
     "MSW 103": {
       "Unit 1": [
@@ -21,7 +30,7 @@ const structure = {
       ]
     }
   },
-  "Semester 2": {
+  "Semester II": {
     "MSW 201": {
       "Unit 1": ["Community Organization.md"]
     }
