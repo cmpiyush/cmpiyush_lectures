@@ -59,61 +59,105 @@ function createTree() {
   // Update the current semester display
   document.getElementById('current-semester').textContent = currentSemester;
   
+  // Create subject selector dropdown
+  const subjectSelector = document.createElement('select');
+  subjectSelector.classList.add('form-select', 'form-select-sm', 'mb-2');
+  subjectSelector.innerHTML = '<option value="">All Subjects</option>';
+  
+  // Create a container for all subjects
+  const subjectsContainer = document.createElement('div');
+  
   // Only show subjects for the current semester
   for (let subject in structure[currentSemester]) {
-    const subjLi = document.createElement('li');
-    subjLi.classList.add('list-group-item', 'tree-item');
-    subjLi.textContent = subject;
-
-    const unitUl = document.createElement('ul');
-    unitUl.classList.add('list-group', 'nested');
+    // Add to dropdown
+    const option = document.createElement('option');
+    option.value = subject;
+    option.textContent = subject;
+    subjectSelector.appendChild(option);
+    
+    // Create subject section
+    const subjectSection = document.createElement('div');
+    subjectSection.id = `subject-${subject.replace(/\s+/g, '-')}`;
+    subjectSection.classList.add('subject-section');
+    
+    // Add subject header
+    const subjectHeader = document.createElement('div');
+    subjectHeader.classList.add('subject-header');
+    subjectHeader.textContent = subject;
+    subjectSection.appendChild(subjectHeader);
+    
+    // Create compact unit list
     for (let unit in structure[currentSemester][subject]) {
-      const unitLi = document.createElement('li');
-      unitLi.classList.add('list-group-item', 'tree-item');
-      unitLi.textContent = unit;
-
-      const topicUl = document.createElement('ul');
-      topicUl.classList.add('list-group', 'nested');
+      const unitDiv = document.createElement('div');
+      unitDiv.classList.add('unit-container');
+      
+      const unitHeader = document.createElement('div');
+      unitHeader.classList.add('unit-header');
+      unitHeader.textContent = unit;
+      unitDiv.appendChild(unitHeader);
+      
+      const topicList = document.createElement('div');
+      topicList.classList.add('topic-list');
+      
       structure[currentSemester][subject][unit].forEach(topic => {
-        const topicLi = document.createElement('li');
-        topicLi.classList.add('list-group-item', 'tree-item', 'clickable');
-        topicLi.textContent = topic.replace('.md', '');
-        topicLi.onclick = () => {
+        const topicItem = document.createElement('div');
+        topicItem.classList.add('topic-item');
+        topicItem.textContent = topic.replace('.md', '');
+        topicItem.onclick = () => {
           // Highlight the selected item
           document.querySelectorAll('.active-item').forEach(el => {
             el.classList.remove('active-item');
           });
-          topicLi.classList.add('active-item');
+          topicItem.classList.add('active-item');
           
           const path = `${currentSemester}/${subject}/${unit}/${topic}`;
           loadNote(path);
         };
-        topicUl.appendChild(topicLi);
+        topicList.appendChild(topicItem);
       });
-
-      unitLi.appendChild(topicUl);
-      unitUl.appendChild(unitLi);
+      
+      unitDiv.appendChild(topicList);
+      subjectSection.appendChild(unitDiv);
     }
-
-    subjLi.appendChild(unitUl);
-    navTree.appendChild(subjLi);
+    
+    subjectsContainer.appendChild(subjectSection);
   }
-
-  // Add click handlers to expand/collapse tree items
-  document.querySelectorAll('.tree-item').forEach(item => {
-    if (item.querySelector('ul.nested')) {
-      item.classList.add('expandable');
-      item.addEventListener('click', function(e) {
-        if (e.target === this) {
-          this.classList.toggle('expanded');
-          const nestedList = this.querySelector('ul.nested');
-          if (nestedList) {
-            nestedList.classList.toggle('active');
-          }
-          e.stopPropagation();
-        }
+  
+  // Add subject selector event listener
+  subjectSelector.addEventListener('change', function() {
+    const selectedSubject = this.value;
+    if (selectedSubject === '') {
+      // Show all subjects
+      document.querySelectorAll('.subject-section').forEach(section => {
+        section.style.display = 'block';
       });
+    } else {
+      // Hide all subject sections
+      document.querySelectorAll('.subject-section').forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      // Show selected subject section
+      const selectedSection = document.getElementById(`subject-${selectedSubject.replace(/\s+/g, '-')}`);
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+      }
     }
+  });
+  
+  // Add elements to the tree
+  navTree.appendChild(subjectSelector);
+  navTree.appendChild(subjectsContainer);
+
+  // Add click handlers to expand/collapse unit headers
+  document.querySelectorAll('.unit-header').forEach(header => {
+    header.addEventListener('click', function() {
+      this.classList.toggle('collapsed');
+      const topicList = this.nextElementSibling;
+      if (topicList) {
+        topicList.classList.toggle('hidden');
+      }
+    });
   });
 }
 
