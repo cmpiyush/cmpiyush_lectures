@@ -1,4 +1,4 @@
-COURSE OUTCOMES (MSW-CC 101)
+### COURSE OUTCOMES (MSW-CC 101)
 After completion of the course, the students will be able to:
 CO1: Learn about the concept, meaning, objective and scope of social work, it’s philosophy and various approaches to social work.
 CO2: Get aware about how social work has been practically applied in helping people to overcome difficult challenges in their life. They will learn about role and functions of social work profession.
