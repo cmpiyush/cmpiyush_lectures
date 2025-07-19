@@ -2,6 +2,10 @@
 `Bold: **bold text**`
 `Italics: *italic text*`
 `[[New Note Name]]`- to link one note with other
+Horizontal Rule
+---
+or 
+***
 `#tag this is tagging`
 `#parent/child Hierarchal tagging.`
 >[!highlighted text. ]

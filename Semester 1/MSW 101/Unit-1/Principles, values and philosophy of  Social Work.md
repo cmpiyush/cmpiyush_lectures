@@ -1,5 +1,7 @@
 ## ETHICAL PRINCIPLES[^1]
+***
 ### 1. Human Rights and Human Dignity
+---
 Social work is based on respect for the inherent worth and dignity of all people, and the rights that follow from this. Social workers should uphold and defend each person’s physical, psychological, emotional and spiritual integrity and well-being. This means:
 ### a) Respecting the Right to Self-determination: 
 Social workers should respect and promote people’s right to make their own choices and decisions, irrespective of their values and life choices, provided this does not threaten the rights and legitimate interests of others.
@@ -12,6 +14,7 @@ should seek to recognise all aspects of a person’s life.
 ### d) Identifying and Developing Strengths: Social workers should focus on the strengths 
 of all individuals, groups and communities and thus promote their empowerment.
 ## 2. Social Justice
+___
 Social workers have a responsibility to promote social justice, in relation to society generally, and in relation to the people with whom they work. This means:
 ### a) Challenging negative discrimination: 
 Social workers have a responsibility to challenge negative discrimination on the basis of characteristics such as ability, age, culture, gender or sex, marital status, socio-economic status, political opinions, skin colour, racial or other physical characteristics, sexual orientation, or spiritual beliefs.
@@ -23,8 +26,8 @@ Social workers should ensure that resources at their disposal are distributed fa
 Social workers have a duty to bring to the attention of their employers, policy makers, politicians and the general public situations where resources are inadequate or where distribution of resources, policies and practices are oppressive, unfair or harmful.
 ### e) Working in Solidarity: 
 Social workers have an obligation to challenge social conditions that contribute to social exclusion, stigmatisation or subjugation, and to work towards an inclusive society.
-
 ## 3. Integrity and Belongingness
+---
 Social workers demonstrate and promote the qualities of honesty, reliability, impartiality and diligence in their professional practice. They maintain a high level of professional conduct by acting with loyalty and accountability and promoting the values of the profession. Social workers value openness and transparency in professional practice and avoid relationships where their integrity or impartiality may be compromised.
 This means:
 ### a) Being Loyal and Trustworthy:
@@ -35,6 +38,7 @@ responsible ways that serve the needs of clients and the promotion of social jus
 ### c) Working with Transparency: 
 Social workers must operate with openness and transparency in such a way that it is easy for others to see what actions are performed. Their transparent approach should communicate the decisions and actions taken by them on the disclosure of information to all concerned persons.
 ## 4. Sustainability
+---
 Social workers have a responsibility to effectively manage and carry out any programme after donor assistance ends. They should develop capability to continue to deliver intended benefits, continue local action and initiatives and generate successor services over an extended period of time. For ensuring sustainability, it is necessary to seek people participation, develop leadership and build their capacities because it is the people who continue the programme in future. This means:
 ### a) Seeking People’s Participation: 
 Social workers should seek people’s participation in planning, implementation, coordination and monitoring & evaluation of a programme. They should develop a sense of ownership and commitment among people.
@@ -42,9 +46,11 @@ Social workers should seek people’s participation in planning, implementation,
 Social workers should allow the people to demonstrate their knowledge and skills to provide necessary direction to the programme, to mobilize the programme constituents to action and reflection, and to facilitate effective decision making within the programme’s organizational set-up.
 ### c) Building Capacity: 
 Social workers should impart trainings to the people in the areas where they lack expertise in order to build their capacities.
-## 6.5. Services
+## 5. Services
+---
 Social workers uphold the services in the interests of others in order to help people in need and to address their issues as well as social problems at large. They try to balance individual needs and rights and freedoms with collective interests to serve the strife ridden humanity. Social workers place the needs of others above self-interest when acting in a professional capacity. They promote individual development and pursuit of individual goals, as well as the development of the society.
-## 6.6. Human Relations
+## 6. Human Relations
+---
 Social workers are able to understand the importance of human relations. They also understand the dynamics of relationship between and among people is one of the most important determinants for social change. Social workers seek to strengthen relationships among people in a purposeful manner in order to promote, restore, maintain and enhance the well-being of individuals, families, social groups and communities.
 
 
