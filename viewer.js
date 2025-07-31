@@ -157,11 +157,34 @@ function createTree() {
   
   for (let subject in structure[currentSemester]) {
     const subjectDiv = document.createElement('div');
-    subjectDiv.innerHTML = `<div class="subject-header" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('hidden')">${subject}</div><div class="units-container">`;
+    subjectDiv.className = 'subject-section';
+    
+    const subjectHeader = document.createElement('div');
+    subjectHeader.className = 'subject-header';
+    subjectHeader.textContent = subject;
+    subjectHeader.onclick = () => {
+      subjectHeader.classList.toggle('collapsed');
+      unitsContainer.classList.toggle('hidden');
+    };
+    
+    const unitsContainer = document.createElement('div');
+    unitsContainer.className = 'units-container';
     
     for (let unit in structure[currentSemester][subject]) {
       const unitDiv = document.createElement('div');
-      unitDiv.innerHTML = `<div class="unit-header" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('hidden')">${unit}</div><div class="topic-list">`;
+      unitDiv.className = 'unit-container';
+      
+      const unitHeader = document.createElement('div');
+      unitHeader.className = 'unit-header';
+      unitHeader.textContent = unit;
+      
+      const topicList = document.createElement('div');
+      topicList.className = 'topic-list';
+      
+      unitHeader.onclick = () => {
+        unitHeader.classList.toggle('collapsed');
+        topicList.classList.toggle('hidden');
+      };
       
       structure[currentSemester][subject][unit].forEach(topic => {
         const topicDiv = document.createElement('div');
@@ -172,24 +195,34 @@ function createTree() {
           topicDiv.classList.add('active-item');
           currentSubject = subject; currentUnit = unit; currentTopic = topic;
           loadNote(`${currentSemester}/${subject}/${unit}/${topic}`);
+          console.log('Loading:', `${currentSemester}/${subject}/${unit}/${topic}`);
         };
-        unitDiv.lastElementChild.appendChild(topicDiv);
+        topicList.appendChild(topicDiv);
       });
       
-      subjectDiv.lastElementChild.appendChild(unitDiv);
+      unitDiv.appendChild(unitHeader);
+      unitDiv.appendChild(topicList);
+      unitsContainer.appendChild(unitDiv);
     }
     
-    subjectDiv.innerHTML += '</div>';
+    subjectDiv.appendChild(subjectHeader);
+    subjectDiv.appendChild(unitsContainer);
     navTree.appendChild(subjectDiv);
   }
 }
 
 async function loadNote(filePath) {
   try {
-    const res = await fetch(filePath);
-    noteDisplay.innerHTML = res.ok ? marked.parse(await res.text()) : `<p style="color:red">Failed to load: ${filePath}</p>`;
+    const encodedPath = encodeURI(filePath);
+    const res = await fetch(encodedPath);
+    if (!res.ok) {
+      noteDisplay.innerHTML = `<p style="color:red">File not found: ${filePath}</p>`;
+      return;
+    }
+    const text = await res.text();
+    noteDisplay.innerHTML = marked.parse(text);
   } catch (err) {
-    noteDisplay.innerHTML = `<p style="color:red">Error: ${err.message}</p>`;
+    noteDisplay.innerHTML = `<p style="color:red">Error: ${err.message}<br>Try running: <code>python -m http.server 8000</code> in this directory</p>`;
   }
 }
 
