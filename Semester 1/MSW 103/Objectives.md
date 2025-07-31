@@ -1,4 +1,4 @@
-COURSE OUTCOMES (MSW-CC 103)
+#### COURSE OUTCOMES (MSW-CC 103)
 After completion of the course, the students will be able to:
 CO1: Learn meaning and purpose of social research and social survey and its relevance to social work practice.
 CO2: Get aware about the different tools of data collections and various sources of data.
