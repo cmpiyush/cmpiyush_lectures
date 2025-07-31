@@ -279,3 +279,78 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize the tree
   createTree();
 });
+
+// Feedback form using formspree
+// === Inject Feedback Button and Form ===
+function injectFeedbackForm() {
+  const formHTML = `
+    <style>
+      #feedback-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #007BFF;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        z-index: 9999;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      }
+      #feedback-form-container {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 300px;
+        background: white;
+        border: 1px solid #ccc;
+        padding: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        border-radius: 8px;
+        display: none;
+        z-index: 9999;
+      }
+      #feedback-form-container textarea, 
+      #feedback-form-container input {
+        width: 100%;
+        margin-top: 8px;
+        padding: 6px;
+        font-size: 14px;
+      }
+      #feedback-form-container button[type="submit"] {
+        background: #007BFF;
+        color: white;
+        border: none;
+        margin-top: 10px;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+
+    <div id="feedback-button">💬 Feedback</div>
+    <div id="feedback-form-container">
+      <form action="https://formspree.io/f/xyzppdga" method="POST">
+        <label>Your Feedback:</label><br>
+        <textarea name="message" rows="4" required></textarea><br>
+        <input type="email" name="_replyto" placeholder="Your email (optional)"><br>
+        <input type="hidden" name="note" value="${document.currentSemester}, ${document.subject}, ${document.unit}">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML("beforeend", formHTML);
+
+  const button = document.getElementById("feedback-button");
+  const form = document.getElementById("feedback-form-container");
+
+  button.addEventListener("click", () => {
+    form.style.display = form.style.display === "none" ? "block" : "none";
+  });
+}
+
+// Call the function on page load
+window.addEventListener("DOMContentLoaded", injectFeedbackForm);
+
