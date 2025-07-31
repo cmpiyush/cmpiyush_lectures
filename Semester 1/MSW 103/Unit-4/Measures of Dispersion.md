@@ -1,0 +1,4 @@
+- Range
+- Interquartile Range
+- Standard Deviation 
+- Variance

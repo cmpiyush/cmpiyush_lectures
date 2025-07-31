@@ -2,12 +2,14 @@
 `Bold: **bold text**`
 `Italics: *italic text*`
 `[[New Note Name]]`- to link one note with other
+[ Link ]( www.google.com )
 Horizontal Rule
 ---
 or 
-***
+`***`
 `#tag this is tagging`
 `#parent/child Hierarchal tagging.`
+
 >[!highlighted text. ]
 >This is highlighted text.
 
@@ -16,6 +18,9 @@ or
 
 > This is a quote.
 > > Nested quote.
+
+
+<% tp.date.now() %>
 
 Here's a sentence with a footnote.[^1]
 

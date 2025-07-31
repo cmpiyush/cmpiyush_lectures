@@ -3,10 +3,10 @@ const structure = {
   "Semester 1": {
     "MSW 101": {
       "Unit-1": [
-        "Goals and Functions of Social Work.md", 
+        "The Concept of Social Work.md", 
         "Principles, values and philosophy of  Social Work.md",
-        "System and Integrated Approach to  Social Work Practice.md",
-        "The Concept of Social Work.md"
+        "Goals and Functions of Social Work.md",
+        "System and Integrated Approach to  Social Work Practice.md"
       ],
       "Unit 2": [
         "History of Social Work.md",
@@ -20,8 +20,8 @@ const structure = {
         "Attributes of a professional social worker.md",
         "Role and functions of social work profession.md",
         "Professional Code of Ethics.md",
-        " Challenges of Social Work as a Profession.md",
-        " Interface between Professional and Voluntary Social Work.md"
+        "Challenges of Social Work as a Profession.md",
+        "Interface between Professional and Voluntary Social Work.md"
       ],
       "Unit 4": [
         "Units of social work intervention and dynamics.md",
@@ -68,45 +68,63 @@ const structure = {
       "Unit 2": [
         "Hypothesis-Meaning, Characteristics, Source and types.md", 
         "Sampling Techniques.md",
-        "Sampling- Meaning, types and utility, reliability of sample, general considerations in the determination of sample size.md"
+        "Sampling.md"
       ],
       "Unit 3": [
-        "Research Design - Meaning and Types",
-        "Scaling method - Bogardus & Likert",
-        "Tools of data collections",
-        "Observation, interview and case study",
-        "Sources of data: Primary and Secondary"
+        "Research Design - Meaning and Types.md",
+        "Scaling method - Bogardus & Likert.md",
+        "Tools of data collections.md",
+        "Observation, interview and case study.md",
+        "Sources of data: Primary and Secondary.md"
       ],
       "Unit 4": [
-        "Statistics-Meaning, Signification, Uses and limitations",
+        "Statistics-Meaning, Signification, Uses and limitations.md",
         "Diagrammatic representation of data.md",
-        "Measures of Central Tendencies- Mean, Median and Mode",
-        "Measures of Dispersion- Range, Interquartile Range, Standard Deviation, Variance",
+        "Measures of Central Tendencies.md",
+        "Measures of Dispersion.md",
         "Chi-Square Test.md",
-        "Co-efficient of correlation, Karl Pearson and Spearman’s rank correlation",
+        "Co-efficient of correlation.md",
         "Regression Analysis.md",
         "Use of computer and internet in social work practice.md"
       ],
       "Unit 5": [
-        "Writing a research report",
-        "Social Work research report content and formats",
-        "Literature Review and Literature Survey",
+        "Writing a research report.md",
+        "Social Work research report content and formats.md",
+        "Literature Review and Literature Survey.md",
         "Problem Identification.md",
         "Specification of Research Questions.md",
         "Rationale and Study Objectives.md",
-        "Operational definitions",
+        "Operational definitions.md",
         "Research Methodology.md",
-        "Research Design.md",
         "Data Collection and Analysis.md",
         "Interpretation of results and discussion.md",
         "Conclusion.md",
         "References.md"
       ]
+    },
+    "MSW 104": {
+      "Unit 1": ["Civil Society.md",
+        "Social Welfare services.md",
+        "Government and Non-Government Organizations.md"
+      ],
+      "Unit 2": [
+        "Registration of non-governmental organizations.md",
+        "Types of Non-Governmental Organizations.md",
+      ],
+      "Unit 3": [
+        "Project Proposal.md",
+        "Programme management.md",
+        "Project Cycle Management.md",
+        "Financial Resource Management.md",
+        "Funding of Non-Governmental Organizations.md",
+        "Fund Raising.md"
+      ],
+
     }
   },
   "Semester 2": {
     "MSW 201": {
-      "Unit 1": ["Community Organization.md"]
+      "Unit 1": ["Community Organisation.md"]
     }
   },
   "Semester 3": {
