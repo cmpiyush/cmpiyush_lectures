@@ -149,6 +149,9 @@ const structure = {
 };
 
 let currentSemester = "Semester 1";
+let currentSubject = "";
+let currentUnit = "";
+let currentTopic = "";
 
 const navTree = document.getElementById('nav-tree');
 const noteDisplay = document.getElementById('note-display');
@@ -198,6 +201,11 @@ function createTree() {
             el.classList.remove('active-item');
           });
           topicItem.classList.add('active-item');
+          
+          // Update current context
+          currentSubject = subject;
+          currentUnit = unit;
+          currentTopic = topic;
           
           const path = `${currentSemester}/${subject}/${unit}/${topic}`;
           loadNote(path);
@@ -281,7 +289,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Feedback form using formspree
-// === Inject Feedback Button and Form ===
 function injectFeedbackForm() {
   const formHTML = `
     <style>
@@ -335,7 +342,10 @@ function injectFeedbackForm() {
         <label>Your Feedback:</label><br>
         <textarea name="message" rows="4" required></textarea><br>
         <input type="email" name="_replyto" placeholder="Your email (optional)"><br>
-        <input type="hidden" name="note" value="${document.structure[currentSemester][subject][unit]}">
+        <input type="hidden" name="semester" id="feedback-semester">
+        <input type="hidden" name="subject" id="feedback-subject">
+        <input type="hidden" name="unit" id="feedback-unit">
+        <input type="hidden" name="topic" id="feedback-topic">
         <button type="submit">Submit</button>
       </form>
     </div>
@@ -347,6 +357,12 @@ function injectFeedbackForm() {
   const form = document.getElementById("feedback-form-container");
 
   button.addEventListener("click", () => {
+    // Update hidden fields with current context
+    document.getElementById('feedback-semester').value = currentSemester;
+    document.getElementById('feedback-subject').value = currentSubject;
+    document.getElementById('feedback-unit').value = currentUnit;
+    document.getElementById('feedback-topic').value = currentTopic;
+    
     form.style.display = form.style.display === "none" ? "block" : "none";
   });
 }
