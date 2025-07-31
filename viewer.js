@@ -335,7 +335,7 @@ function injectFeedbackForm() {
         <label>Your Feedback:</label><br>
         <textarea name="message" rows="4" required></textarea><br>
         <input type="email" name="_replyto" placeholder="Your email (optional)"><br>
-        <input type="hidden" name="note" value="${document.currentSemester}, ${document.subject}, ${document.unit}">
+        <input type="hidden" name="note" value="${document.structure[currentSemester][subject][unit]}">
         <button type="submit">Submit</button>
       </form>
     </div>
