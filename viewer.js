@@ -9,12 +9,54 @@ const structure = {
         "The Concept of Social Work.md"
       ],
       "Unit 2": [
-        "History of Social Work.md"
+        "History of Social Work.md",
+        "Social work profession as a change agent.md",
+        "Social Work in India- Historical Perspective.md",
+        "Social service and reform tradition in India.md",
+        "Hindu reforms movements.md"
+      ],
+      "Unit 3": [
+        "Attributes of a profession.md",
+        "Attributes of a professional social worker.md",
+        "Role and functions of social work profession.md",
+        "Professional Code of Ethics.md",
+        " Challenges of Social Work as a Profession.md",
+        " Interface between Professional and Voluntary Social Work.md"
+      ],
+      "Unit 4": [
+        "Units of social work intervention and dynamics.md",
+        "Individual and Family.md",
+        "Group, organizations and communities.md",
+      ],
+      "Unit 5": [
+        "Neo-liberalism and globalization.md",
+        "Post modernism.md",
+        "Feminism.md",
+        "Resurgence of civil society.md",
+        "Ideology of Non-Government organization.md"
       ]
     },
     "MSW 102": {
       "Unit 1": [
-        "Introduction to Psychology.md"
+        "Society as a system of relationship, Social Structure and Social Processes.md",
+      ],
+      "Unit 2": [
+        "Socialization- Meaning, process and significance.md",
+        "Social Institutions- Meaning, characteristics and types.md",
+        "Social Stratification- Meaning, characteristics and types.md"
+      ],
+      "Unit 3": [
+        "Society and Culture.md",
+        "Social Control- Meaning, concept and agencies, characteristics and types.md",
+        "Social Problems- Meaning, characteristics and types.md"
+      ],
+      "Unit 4":[
+        "Theories of Society.md",
+        "Indian Society.md"
+      ],
+      "Unit 5": [
+        "Social change.md",
+        "Social change process in India"
       ]
     },
     "MSW 103": {
@@ -27,6 +69,38 @@ const structure = {
         "Hypothesis-Meaning, Characteristics, Source and types.md", 
         "Sampling Techniques.md",
         "Sampling- Meaning, types and utility, reliability of sample, general considerations in the determination of sample size.md"
+      ],
+      "Unit 3": [
+        "Research Design - Meaning and Types",
+        "Scaling method - Bogardus & Likert",
+        "Tools of data collections",
+        "Observation, interview and case study",
+        "Sources of data: Primary and Secondary"
+      ],
+      "Unit 4": [
+        "Statistics-Meaning, Signification, Uses and limitations",
+        "Diagrammatic representation of data.md",
+        "Measures of Central Tendencies- Mean, Median and Mode",
+        "Measures of Dispersion- Range, Interquartile Range, Standard Deviation, Variance",
+        "Chi-Square Test.md",
+        "Co-efficient of correlation, Karl Pearson and Spearman’s rank correlation",
+        "Regression Analysis.md",
+        "Use of computer and internet in social work practice.md"
+      ],
+      "Unit 5": [
+        "Writing a research report",
+        "Social Work research report content and formats",
+        "Literature Review and Literature Survey",
+        "Problem Identification.md",
+        "Specification of Research Questions.md",
+        "Rationale and Study Objectives.md",
+        "Operational definitions",
+        "Research Methodology.md",
+        "Research Design.md",
+        "Data Collection and Analysis.md",
+        "Interpretation of results and discussion.md",
+        "Conclusion.md",
+        "References.md"
       ]
     }
   },
@@ -36,9 +110,36 @@ const structure = {
     }
   },
   "Semester 3": {
-    "MSW 301": {
-      "Unit 1": ["Example Note 1.md"]
-    }
+    "MSW 313": {
+      "Unit 1": [
+        "Demography and Population.md",
+        "Sources of Demographic Data.md",
+        "Population Growth and its Consequences.md",
+        "Population Policy and Programmes.md"
+      ],
+      "Unit 2": [
+        "Determinants of population growth.md",
+        "Theories of population",
+        "Population Control Measures.md",
+
+      ],
+      "Unit 3": [
+        "Characteristics of Indian Population.md",
+        "Population Composition and Distribution in India.md",
+        "Population and Development in India.md",
+      ],
+      "Unit 4": [
+        "Population growth and population policy in India.md",
+        "National Population policy.md",
+        "Family planning in India.md",
+        "Role of social worker in family planning.md"
+      ],
+      "Unit 5": [
+        "Population education.md",
+        "population education in educational institutions.md",
+        "social work practice and population education.md"
+      ]
+    },
   },
   "Semester 4": {
     "MSW 401": {
@@ -59,32 +160,20 @@ function createTree() {
   // Update the current semester display
   document.getElementById('current-semester').textContent = currentSemester;
   
-  // Create subject selector dropdown
-  const subjectSelector = document.createElement('select');
-  subjectSelector.classList.add('form-select', 'form-select-sm', 'mb-2');
-  subjectSelector.innerHTML = '<option value="">All Subjects</option>';
-  
-  // Create a container for all subjects
-  const subjectsContainer = document.createElement('div');
-  
   // Only show subjects for the current semester
   for (let subject in structure[currentSemester]) {
-    // Add to dropdown
-    const option = document.createElement('option');
-    option.value = subject;
-    option.textContent = subject;
-    subjectSelector.appendChild(option);
-    
     // Create subject section
     const subjectSection = document.createElement('div');
-    subjectSection.id = `subject-${subject.replace(/\s+/g, '-')}`;
     subjectSection.classList.add('subject-section');
     
-    // Add subject header
+    // Add subject header (collapsible)
     const subjectHeader = document.createElement('div');
     subjectHeader.classList.add('subject-header');
     subjectHeader.textContent = subject;
-    subjectSection.appendChild(subjectHeader);
+    
+    // Create units container
+    const unitsContainer = document.createElement('div');
+    unitsContainer.classList.add('units-container');
     
     // Create compact unit list
     for (let unit in structure[currentSemester][subject]) {
@@ -117,38 +206,25 @@ function createTree() {
       });
       
       unitDiv.appendChild(topicList);
-      subjectSection.appendChild(unitDiv);
+      unitsContainer.appendChild(unitDiv);
     }
     
-    subjectsContainer.appendChild(subjectSection);
+    subjectSection.appendChild(subjectHeader);
+    subjectSection.appendChild(unitsContainer);
+    navTree.appendChild(subjectSection);
   }
   
-  // Add subject selector event listener
-  subjectSelector.addEventListener('change', function() {
-    const selectedSubject = this.value;
-    if (selectedSubject === '') {
-      // Show all subjects
-      document.querySelectorAll('.subject-section').forEach(section => {
-        section.style.display = 'block';
-      });
-    } else {
-      // Hide all subject sections
-      document.querySelectorAll('.subject-section').forEach(section => {
-        section.style.display = 'none';
-      });
-      
-      // Show selected subject section
-      const selectedSection = document.getElementById(`subject-${selectedSubject.replace(/\s+/g, '-')}`);
-      if (selectedSection) {
-        selectedSection.style.display = 'block';
+  // Add click handlers to expand/collapse subject headers
+  document.querySelectorAll('.subject-header').forEach(header => {
+    header.addEventListener('click', function() {
+      this.classList.toggle('collapsed');
+      const unitsContainer = this.nextElementSibling;
+      if (unitsContainer) {
+        unitsContainer.classList.toggle('hidden');
       }
-    }
+    });
   });
   
-  // Add elements to the tree
-  navTree.appendChild(subjectSelector);
-  navTree.appendChild(subjectsContainer);
-
   // Add click handlers to expand/collapse unit headers
   document.querySelectorAll('.unit-header').forEach(header => {
     header.addEventListener('click', function() {
