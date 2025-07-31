@@ -117,8 +117,27 @@ const structure = {
         "Project Cycle Management.md",
         "Financial Resource Management.md",
         "Funding of Non-Governmental Organizations.md",
-        "Fund Raising.md"
+        "Fund Raising.md",
+        "Monitoring and Evaluation.md",
+        "Impact Assessment.md",
+        "Social Audit.md",
+        "Participatory Rural Appraisal.md"
       ],
+      "Unit 4": [
+        "Disaster- Meaning and importance.md",
+        "Types of Natural Disasters.md",
+        "Impact of Natural Disasters.md"
+      ],
+      "Unit 5": [
+        "Level of Disaster Management.md",
+        "Disaster Management Cycle.md",
+        "Pre-Disaster Prevention.md",
+        "Disaster short term and long term plan.md",
+        "Stress and Trauma Management.md",
+        "Search, Relief, recovery and restoration, resource mobilisation.md",
+        "Post-Disaster Rehabilitation and mitigation of negative effects.md",
+        "Intervening Parties in Disaster Management.md"
+      ]
 
     }
   },
