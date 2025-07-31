@@ -148,7 +148,7 @@ const structure = {
   }
 };
 
-let currentSemester = "Semester 1", currentSubject = "", currentUnit = "", currentTopic = "";
+let currentSemester = "Semester 1";
 const navTree = document.getElementById('nav-tree'), noteDisplay = document.getElementById('note-display');
 
 function createTree() {
