@@ -148,225 +148,73 @@ const structure = {
   }
 };
 
-let currentSemester = "Semester 1";
-let currentSubject = "";
-let currentUnit = "";
-let currentTopic = "";
-
-const navTree = document.getElementById('nav-tree');
-const noteDisplay = document.getElementById('note-display');
+let currentSemester = "Semester 1", currentSubject = "", currentUnit = "", currentTopic = "";
+const navTree = document.getElementById('nav-tree'), noteDisplay = document.getElementById('note-display');
 
 function createTree() {
-  // Clear the navigation tree first
   navTree.innerHTML = '';
-  
-  // Update the current semester display
   document.getElementById('current-semester').textContent = currentSemester;
   
-  // Only show subjects for the current semester
   for (let subject in structure[currentSemester]) {
-    // Create subject section
-    const subjectSection = document.createElement('div');
-    subjectSection.classList.add('subject-section');
+    const subjectDiv = document.createElement('div');
+    subjectDiv.innerHTML = `<div class="subject-header" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('hidden')">${subject}</div><div class="units-container">`;
     
-    // Add subject header (collapsible)
-    const subjectHeader = document.createElement('div');
-    subjectHeader.classList.add('subject-header');
-    subjectHeader.textContent = subject;
-    
-    // Create units container
-    const unitsContainer = document.createElement('div');
-    unitsContainer.classList.add('units-container');
-    
-    // Create compact unit list
     for (let unit in structure[currentSemester][subject]) {
       const unitDiv = document.createElement('div');
-      unitDiv.classList.add('unit-container');
-      
-      const unitHeader = document.createElement('div');
-      unitHeader.classList.add('unit-header');
-      unitHeader.textContent = unit;
-      unitDiv.appendChild(unitHeader);
-      
-      const topicList = document.createElement('div');
-      topicList.classList.add('topic-list');
+      unitDiv.innerHTML = `<div class="unit-header" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('hidden')">${unit}</div><div class="topic-list">`;
       
       structure[currentSemester][subject][unit].forEach(topic => {
-        const topicItem = document.createElement('div');
-        topicItem.classList.add('topic-item');
-        topicItem.textContent = topic.replace('.md', '');
-        topicItem.onclick = () => {
-          // Highlight the selected item
-          document.querySelectorAll('.active-item').forEach(el => {
-            el.classList.remove('active-item');
-          });
-          topicItem.classList.add('active-item');
-          
-          // Update current context
-          currentSubject = subject;
-          currentUnit = unit;
-          currentTopic = topic;
-          
-          const path = `${currentSemester}/${subject}/${unit}/${topic}`;
-          loadNote(path);
+        const topicDiv = document.createElement('div');
+        topicDiv.className = 'topic-item';
+        topicDiv.textContent = topic.replace('.md', '');
+        topicDiv.onclick = () => {
+          document.querySelectorAll('.active-item').forEach(el => el.classList.remove('active-item'));
+          topicDiv.classList.add('active-item');
+          currentSubject = subject; currentUnit = unit; currentTopic = topic;
+          loadNote(`${currentSemester}/${subject}/${unit}/${topic}`);
         };
-        topicList.appendChild(topicItem);
+        unitDiv.lastElementChild.appendChild(topicDiv);
       });
       
-      unitDiv.appendChild(topicList);
-      unitsContainer.appendChild(unitDiv);
+      subjectDiv.lastElementChild.appendChild(unitDiv);
     }
     
-    subjectSection.appendChild(subjectHeader);
-    subjectSection.appendChild(unitsContainer);
-    navTree.appendChild(subjectSection);
+    subjectDiv.innerHTML += '</div>';
+    navTree.appendChild(subjectDiv);
   }
-  
-  // Add click handlers to expand/collapse subject headers
-  document.querySelectorAll('.subject-header').forEach(header => {
-    header.addEventListener('click', function() {
-      this.classList.toggle('collapsed');
-      const unitsContainer = this.nextElementSibling;
-      if (unitsContainer) {
-        unitsContainer.classList.toggle('hidden');
-      }
-    });
-  });
-  
-  // Add click handlers to expand/collapse unit headers
-  document.querySelectorAll('.unit-header').forEach(header => {
-    header.addEventListener('click', function() {
-      this.classList.toggle('collapsed');
-      const topicList = this.nextElementSibling;
-      if (topicList) {
-        topicList.classList.toggle('hidden');
-      }
-    });
-  });
 }
 
 async function loadNote(filePath) {
   try {
     const res = await fetch(filePath);
-    if (!res.ok) throw new Error('Note not found');
-    const md = await res.text();
-    noteDisplay.innerHTML = marked.parse(md);
+    noteDisplay.innerHTML = res.ok ? marked.parse(await res.text()) : `<p style="color:red">Failed to load: ${filePath}</p>`;
   } catch (err) {
-    noteDisplay.innerHTML = `<p style="color:red;">Failed to load note: ${filePath}</p>`;
+    noteDisplay.innerHTML = `<p style="color:red">Error: ${err.message}</p>`;
   }
 }
 
-// Function to change the current semester
-function changeSemester(semester) {
-  if (structure[semester]) {
-    currentSemester = semester;
-    createTree();
-    // Clear the note display
-    noteDisplay.innerHTML = '<p>Select a note to view it here.</p>';
-  }
-}
-
-// Add event listeners to semester links
-document.addEventListener('DOMContentLoaded', function() {
-  const semesterLinks = document.querySelectorAll('.nav-link[data-semester]');
-  semesterLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-semester]').forEach((link, i) => {
+    link.onclick = e => {
       e.preventDefault();
-      const semester = this.getAttribute('data-semester');
-      changeSemester(semester);
-      
-      // Update active state in navbar
-      semesterLinks.forEach(l => l.classList.remove('active'));
-      this.classList.add('active');
-    });
+      currentSemester = link.dataset.semester;
+      createTree();
+      noteDisplay.innerHTML = '<p>Select a note to view it here.</p>';
+      document.querySelectorAll('[data-semester]').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    };
+    if (i === 0) link.classList.add('active');
   });
-  
-  // Set the first semester as active by default
-  semesterLinks[0].classList.add('active');
-  
-  // Initialize the tree
   createTree();
 });
 
-// Feedback form using formspree
-function injectFeedbackForm() {
-  const formHTML = `
-    <style>
-      #feedback-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: #007BFF;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        font-size: 14px;
-        cursor: pointer;
-        z-index: 9999;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      }
-      #feedback-form-container {
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        width: 300px;
-        background: white;
-        border: 1px solid #ccc;
-        padding: 15px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        border-radius: 8px;
-        display: none;
-        z-index: 9999;
-      }
-      #feedback-form-container textarea, 
-      #feedback-form-container input {
-        width: 100%;
-        margin-top: 8px;
-        padding: 6px;
-        font-size: 14px;
-      }
-      #feedback-form-container button[type="submit"] {
-        background: #007BFF;
-        color: white;
-        border: none;
-        margin-top: 10px;
-        padding: 8px;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-    </style>
-
-    <div id="feedback-button">💬 Feedback</div>
-    <div id="feedback-form-container">
-      <form action="https://formspree.io/f/xyzppdga" method="POST">
-        <label>Your Feedback:</label><br>
-        <textarea name="message" rows="4" required></textarea><br>
-        <input type="email" name="_replyto" placeholder="Your email (optional)"><br>
-        <input type="hidden" name="semester" id="feedback-semester">
-        <input type="hidden" name="subject" id="feedback-subject">
-        <input type="hidden" name="unit" id="feedback-unit">
-        <input type="hidden" name="topic" id="feedback-topic">
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  `;
-
-  document.body.insertAdjacentHTML("beforeend", formHTML);
-
-  const button = document.getElementById("feedback-button");
-  const form = document.getElementById("feedback-form-container");
-
-  button.addEventListener("click", () => {
-    // Update hidden fields with current context
-    document.getElementById('feedback-semester').value = currentSemester;
-    document.getElementById('feedback-subject').value = currentSubject;
-    document.getElementById('feedback-unit').value = currentUnit;
-    document.getElementById('feedback-topic').value = currentTopic;
-    
-    form.style.display = form.style.display === "none" ? "block" : "none";
-  });
-}
-
-// Call the function on page load
-window.addEventListener("DOMContentLoaded", injectFeedbackForm);
+// Feedback form
+document.getElementById('feedback-btn').onclick = () => {
+  const form = document.getElementById('feedback-form');
+  document.getElementById('fb-sem').value = currentSemester;
+  document.getElementById('fb-subj').value = currentSubject;
+  document.getElementById('fb-unit').value = currentUnit;
+  document.getElementById('fb-topic').value = currentTopic;
+  form.style.display = form.style.display === 'none' ? 'block' : 'none';
+};
 

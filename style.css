@@ -21,6 +21,26 @@ body {
   padding: 0.2rem 0;
   border-bottom: 1px solid #dee2e6;
   margin-bottom: 0.3rem;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+.subject-header::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 0.7em;
+  transition: transform 0.2s;
+}
+
+.subject-header.collapsed::before {
+  transform: rotate(90deg);
+}
+
+.units-container.hidden {
+  display: none;
 }
 
 /* Unit styles */
@@ -117,5 +137,50 @@ body {
 #sidebar .card-body {
   max-height: calc(100vh - 200px);
   overflow-y: auto;
+}
+
+/* Feedback styles */
+#feedback-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #007BFF;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#feedback-form {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 300px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  display: none;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#feedback-form textarea,
+#feedback-form input[type="email"] {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#feedback-form button {
+  background: #007BFF;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
