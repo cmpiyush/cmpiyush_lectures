@@ -1,195 +1,11 @@
-// Define your structure manually or fetch from repo API
-const structure = {
-  "Semester 1": {
-    "MSW 101": {
-      "Unit-1": [
-        "The Concept of Social Work.md", 
-        "Principles, values and philosophy of  Social Work.md",
-        "Goals and Functions of Social Work.md",
-        "System and Integrated Approach to  Social Work Practice.md"
-      ],
-      "Unit 2": [
-        "History of Social Work.md",
-        "Social work profession as a change agent.md",
-        "Social Work in India- Historical Perspective.md",
-        "Social service and reform tradition in India.md",
-        "Hindu reforms movements.md"
-      ],
-      "Unit 3": [
-        "Attributes of a profession.md",
-        "Attributes of a professional social worker.md",
-        "Role and functions of social work profession.md",
-        "Professional Code of Ethics.md",
-        "Challenges of Social Work as a Profession.md",
-        "Interface between Professional and Voluntary Social Work.md"
-      ],
-      "Unit 4": [
-        "Units of social work intervention and dynamics.md",
-        "Individual and Family.md",
-        "Group, organizations and communities.md",
-      ],
-      "Unit 5": [
-        "Neo-liberalism and globalization.md",
-        "Post modernism.md",
-        "Feminism.md",
-        "Resurgence of civil society.md",
-        "Ideology of Non-Government organization.md"
-      ]
-    },
-    "MSW 102": {
-      "Unit 1": [
-        "Society as a system of relationship, Social Structure and Social Processes.md",
-      ],
-      "Unit 2": [
-        "Socialization- Meaning, process and significance.md",
-        "Social Institutions- Meaning, characteristics and types.md",
-        "Social Stratification- Meaning, characteristics and types.md"
-      ],
-      "Unit 3": [
-        "Society and Culture.md",
-        "Social Control- Meaning, concept and agencies, characteristics and types.md",
-        "Social Problems- Meaning, characteristics and types.md"
-      ],
-      "Unit 4":[
-        "Theories of Society.md",
-        "Indian Society.md"
-      ],
-      "Unit 5": [
-        "Social change.md",
-        "Social change process in India"
-      ]
-    },
-    "MSW 103": {
-      "Unit 1": [
-        "Social Research- Meaning and purpose.md", 
-        "Types of research-Pure, Applied, Basic, Action.md",
-        "Social Work Research- Meaning, Steps and its relevance to social work practice.md"
-      ],
-      "Unit 2": [
-        "Hypothesis-Meaning, Characteristics, Source and types.md", 
-        "Sampling Techniques.md",
-        "Sampling.md"
-      ],
-      "Unit 3": [
-        "Research Design - Meaning and Types.md",
-        "Scaling method - Bogardus & Likert.md",
-        "Tools of data collections.md",
-        "Observation, interview and case study.md",
-        "Sources of data: Primary and Secondary.md"
-      ],
-      "Unit 4": [
-        "Statistics-Meaning, Signification, Uses and limitations.md",
-        "Diagrammatic representation of data.md",
-        "Measures of Central Tendencies.md",
-        "Measures of Dispersion.md",
-        "Chi-Square Test.md",
-        "Co-efficient of correlation.md",
-        "Regression Analysis.md",
-        "Use of computer and internet in social work practice.md"
-      ],
-      "Unit 5": [
-        "Writing a research report.md",
-        "Social Work research report content and formats.md",
-        "Literature Review and Literature Survey.md",
-        "Problem Identification.md",
-        "Specification of Research Questions.md",
-        "Rationale and Study Objectives.md",
-        "Operational definitions.md",
-        "Research Methodology.md",
-        "Data Collection and Analysis.md",
-        "Interpretation of results and discussion.md",
-        "Conclusion.md",
-        "References.md"
-      ]
-    },
-    "MSW 104": {
-      "Unit 1": ["Civil Society.md",
-        "Social Welfare services.md",
-        "Government and Non-Government Organizations.md"
-      ],
-      "Unit 2": [
-        "Registration of non-governmental organizations.md",
-        "Types of Non-Governmental Organizations.md",
-      ],
-      "Unit 3": [
-        "Project Proposal.md",
-        "Programme management.md",
-        "Project Cycle Management.md",
-        "Financial Resource Management.md",
-        "Funding of Non-Governmental Organizations.md",
-        "Fund Raising.md",
-        "Monitoring and Evaluation.md",
-        "Impact Assessment.md",
-        "Social Audit.md",
-        "Participatory Rural Appraisal.md"
-      ],
-      "Unit 4": [
-        "Disaster- Meaning and importance.md",
-        "Types of Natural Disasters.md",
-        "Impact of Natural Disasters.md"
-      ],
-      "Unit 5": [
-        "Level of Disaster Management.md",
-        "Disaster Management Cycle.md",
-        "Pre-Disaster Prevention.md",
-        "Disaster short term and long term plan.md",
-        "Stress and Trauma Management.md",
-        "Search, Relief, recovery and restoration, resource mobilisation.md",
-        "Post-Disaster Rehabilitation and mitigation of negative effects.md",
-        "Intervening Parties in Disaster Management.md"
-      ]
-
-    }
-  },
-  "Semester 2": {
-    "MSW 201": {
-      "Unit 1": ["Community Organisation.md"]
-    }
-  },
-  "Semester 3": {
-    "MSW 313": {
-      "Unit 1": [
-        "Demography and Population.md",
-        "Sources of Demographic Data.md",
-        "Population Growth and its Consequences.md",
-        "Population Policy and Programmes.md"
-      ],
-      "Unit 2": [
-        "Determinants of population growth.md",
-        "Theories of population",
-        "Population Control Measures.md",
-
-      ],
-      "Unit 3": [
-        "Characteristics of Indian Population.md",
-        "Population Composition and Distribution in India.md",
-        "Population and Development in India.md",
-      ],
-      "Unit 4": [
-        "Population growth and population policy in India.md",
-        "National Population policy.md",
-        "Family planning in India.md",
-        "Role of social worker in family planning.md"
-      ],
-      "Unit 5": [
-        "Population education.md",
-        "population education in educational institutions.md",
-        "social work practice and population education.md"
-      ]
-    },
-  },
-  "Semester 4": {
-    "MSW 401": {
-      "Unit 1": ["Example Note 1.md"]
-    }
-  }
-};
-
-let currentSemester = "Semester 1", currentSubject = "", currentUnit = "", currentTopic = "";
+let currentSemester = "Concepts", currentSubject = "", currentTopic = "";
+let allTopics = [];
+let currentTopicIndex = -1;
 const navTree = document.getElementById('nav-tree'), noteDisplay = document.getElementById('note-display');
 
 function createTree() {
   navTree.innerHTML = '';
+  allTopics = [];
   document.getElementById('current-semester').textContent = currentSemester;
   
   for (let subject in structure[currentSemester]) {
@@ -199,52 +15,66 @@ function createTree() {
     const subjectHeader = document.createElement('div');
     subjectHeader.className = 'subject-header';
     subjectHeader.textContent = subject;
+    
+    const topicsContainer = document.createElement('div');
+    topicsContainer.className = 'topics-container';
+    
     subjectHeader.onclick = () => {
       subjectHeader.classList.toggle('collapsed');
-      unitsContainer.classList.toggle('hidden');
+      topicsContainer.classList.toggle('hidden');
     };
     
-    const unitsContainer = document.createElement('div');
-    unitsContainer.className = 'units-container';
-    
-    for (let unit in structure[currentSemester][subject]) {
-      const unitDiv = document.createElement('div');
-      unitDiv.className = 'unit-container';
+    // Direct iteration over topics (no units)
+    structure[currentSemester][subject].forEach(topic => {
+      allTopics.push({ subject, topic });
       
-      const unitHeader = document.createElement('div');
-      unitHeader.className = 'unit-header';
-      unitHeader.textContent = unit;
-      
-      const topicList = document.createElement('div');
-      topicList.className = 'topic-list';
-      
-      unitHeader.onclick = () => {
-        unitHeader.classList.toggle('collapsed');
-        topicList.classList.toggle('hidden');
+      const topicDiv = document.createElement('div');
+      topicDiv.className = 'topic-item';
+      topicDiv.textContent = topic.replace('.md', '');
+      topicDiv.onclick = () => {
+        document.querySelectorAll('.active-item').forEach(el => el.classList.remove('active-item'));
+        topicDiv.classList.add('active-item');
+        currentSubject = subject; currentTopic = topic;
+        currentTopicIndex = allTopics.findIndex(t => t.topic === topic && t.subject === subject);
+        loadNote(`${currentSemester}/${subject}/${topic}`);
+        updateNavigation();
       };
-      
-      structure[currentSemester][subject][unit].forEach(topic => {
-        const topicDiv = document.createElement('div');
-        topicDiv.className = 'topic-item';
-        topicDiv.textContent = topic.replace('.md', '');
-        topicDiv.onclick = () => {
-          document.querySelectorAll('.active-item').forEach(el => el.classList.remove('active-item'));
-          topicDiv.classList.add('active-item');
-          currentSubject = subject; currentUnit = unit; currentTopic = topic;
-          loadNote(`${currentSemester}/${subject}/${unit}/${topic}`);
-          console.log('Loading:', `${currentSemester}/${subject}/${unit}/${topic}`);
-        };
-        topicList.appendChild(topicDiv);
-      });
-      
-      unitDiv.appendChild(unitHeader);
-      unitDiv.appendChild(topicList);
-      unitsContainer.appendChild(unitDiv);
-    }
+      topicsContainer.appendChild(topicDiv);
+    });
     
     subjectDiv.appendChild(subjectHeader);
-    subjectDiv.appendChild(unitsContainer);
+    subjectDiv.appendChild(topicsContainer);
     navTree.appendChild(subjectDiv);
+  }
+}
+
+function updateNavigation() {
+  const navigation = document.getElementById('navigation');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  if (navigation && prevBtn && nextBtn && currentTopicIndex >= 0) {
+    navigation.style.display = 'flex';
+    prevBtn.disabled = currentTopicIndex === 0;
+    nextBtn.disabled = currentTopicIndex === allTopics.length - 1;
+  }
+}
+
+function navigateToTopic(index) {
+  if (index >= 0 && index < allTopics.length) {
+    const topic = allTopics[index];
+    currentTopicIndex = index;
+    currentSubject = topic.subject;
+    currentTopic = topic.topic;
+    loadNote(`${currentSemester}/${topic.subject}/${topic.topic}`);
+    updateNavigation();
+    
+    document.querySelectorAll('.active-item').forEach(el => el.classList.remove('active-item'));
+    document.querySelectorAll('.topic-item').forEach(item => {
+      if (item.textContent === topic.topic.replace('.md', '')) {
+        item.classList.add('active-item');
+      }
+    });
   }
 }
 
@@ -259,22 +89,29 @@ async function loadNote(filePath) {
     const text = await res.text();
     noteDisplay.innerHTML = marked.parse(text);
   } catch (err) {
-    noteDisplay.innerHTML = `<p style="color:red">Error: ${err.message}<br>Try running: <code>python -m http.server 8000</code> in this directory</p>`;
+    noteDisplay.innerHTML = `<p style="color:red">Error: ${err.message}</p>`;
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Semester navigation
   document.querySelectorAll('[data-semester]').forEach((link, i) => {
     link.onclick = e => {
       e.preventDefault();
       currentSemester = link.dataset.semester;
       createTree();
       noteDisplay.innerHTML = '<p>Select a note to view it here.</p>';
+      document.getElementById('navigation').style.display = 'none';
       document.querySelectorAll('[data-semester]').forEach(l => l.classList.remove('active'));
       link.classList.add('active');
     };
     if (i === 0) link.classList.add('active');
   });
+  
+  // Navigation buttons
+  document.getElementById('prev-btn').onclick = () => navigateToTopic(currentTopicIndex - 1);
+  document.getElementById('next-btn').onclick = () => navigateToTopic(currentTopicIndex + 1);
+  
   createTree();
 });
 
@@ -287,4 +124,3 @@ document.getElementById('feedback-btn').onclick = () => {
   document.getElementById('fb-topic').value = currentTopic;
   form.style.display = form.style.display === 'none' ? 'block' : 'none';
 };
-
