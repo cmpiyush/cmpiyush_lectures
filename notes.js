@@ -81,6 +81,7 @@ let currentTopic = '';
 let allTopics = [];
 
 function loadNote(theme, subject, topic) {
+  clearSearchBox();
   const notesHeader = document.getElementById("notes-header");
   const notesContent = document.getElementById("notes-content");
   if (!notesContent || !notesHeader) return;
@@ -104,27 +105,27 @@ function loadNote(theme, subject, topic) {
   const navContainer = document.createElement('div');
   navContainer.className = 'd-flex justify-content-between align-items-center';
 
-  // Toggle button for mobile
+// Toggle button for mobile
   const toggleBtn = document.createElement('button');
   toggleBtn.className = 'btn btn-outline-light btn-sm me-2 d-md-none';
   toggleBtn.innerHTML = '☰';
   toggleBtn.onclick = () => {
   sidebar.classList.toggle('d-none');
   };
-  // Previous button
+// Previous button
   const prevBtn = document.createElement('button');
   prevBtn.className = 'btn btn-outline-light btn-sm';
   prevBtn.innerHTML = '← Previous';
   prevBtn.onclick = navigatePrevious;
-  // Title
+// Title
   const titleSpan = document.createElement('span');
   titleSpan.textContent = `${subject} > ${topic.replace('.md', '')}`;
-  // Next button
+// Next button
   const nextBtn = document.createElement('button');
   nextBtn.className = 'btn btn-outline-light btn-sm';
   nextBtn.innerHTML = 'Next →';
   nextBtn.onclick = navigateNext;
-  // left container with toggle and previous button
+// left container with toggle and previous button
   const leftContainer = document.createElement('div');
   leftContainer.className = 'd-flex align-items-center';
   leftContainer.appendChild(toggleBtn);
@@ -134,13 +135,13 @@ function loadNote(theme, subject, topic) {
   navContainer.appendChild(nextBtn);
   notesHeader.appendChild(navContainer);
   
-  // Clear and show loading in content
+// Clear and show loading in content
   notesContent.textContent = "";
   const loading = document.createElement("p");
   loading.textContent = `Loading ${topic.replace('.md', '')}...`;
   notesContent.appendChild(loading);
   
-  // Fetch note content
+// Fetch note content
   const notePath = `${encodeURIComponent(theme)}/${encodeURIComponent(subject)}/${encodeURIComponent(topic)}`;
   fetch(notePath)
     .then(response => {
@@ -304,17 +305,19 @@ function performGlobalSearch(query) {
         results.push({
           type: 'subject',
           title: `${theme} > ${subject}`,
-          action: () => selectSubject(theme, subject)
+          action: () => selectSubject(subject, topic)
         });
       }
-      
     for (const topic of structure[theme][subject]) {
       const topicName = topic.replace('.md', '');
       if (topicName.toLowerCase().includes(query)) {
         results.push({
           type: 'topic',
           title: `${theme} > ${subject} > ${topicName}`,
-          action: () => loadNote(theme, subject, topic)
+          action: () => {
+            selectTheme(theme);
+            setTimeout(() => loadNote(theme, subject, topic), 100);
+          }
         });
       }
     }
@@ -353,6 +356,7 @@ function displaySearchResults(results) {
     resultDiv.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
+      clearSearchBox();
       try {
         result.action();
       } catch (error) {
@@ -365,7 +369,10 @@ function displaySearchResults(results) {
 }
 
 function searchSidebar(query) {
+  const sidebar = document.getElementById('sidebar');
   const sections = document.querySelectorAll('.subject-section');
+  let hasAnyMatch = false;
+  
   sections.forEach(section => {
     const title = section.querySelector('strong').textContent.toLowerCase();
     const topics = section.querySelectorAll('.topic-link');
@@ -379,7 +386,23 @@ function searchSidebar(query) {
     });
     
     section.style.display = hasMatch ? 'block' : 'none';
+    if (hasMatch) hasAnyMatch = true;
   });
+  
+  // Show "no results" message if no matches found
+  let noResultsMsg = sidebar.querySelector('.no-results-message');
+  if (!hasAnyMatch) {
+    if (!noResultsMsg) {
+      noResultsMsg = document.createElement('div');
+      noResultsMsg.className = 'no-results-message text-center p-3';
+      noResultsMsg.innerHTML = '<p style="color: #6b7280;">No topics found matching "<strong>' + query + '</strong>"</p>';
+      sidebar.appendChild(noResultsMsg);
+    }
+  } else {
+    if (noResultsMsg) {
+      noResultsMsg.remove();
+    }
+  }
 }
 
 function selectTheme(theme) {
@@ -417,6 +440,19 @@ function clearSearchResults() {
       const topics = section.querySelectorAll('.topic-link');
       topics.forEach(topic => topic.style.display = 'block');
     });
+    
+    // Remove no results message
+    const noResultsMsg = document.querySelector('.no-results-message');
+    if (noResultsMsg) {
+      noResultsMsg.remove();
+    }
+  }
+}
+function clearSearchBox() {
+  const searchInput = document.getElementById('search');
+  if (searchInput) {
+    searchInput.value = '';
+    clearSearchResults();
   }
 }
 
