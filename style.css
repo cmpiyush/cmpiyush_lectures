@@ -210,12 +210,21 @@ nav .muted {
     text-align: center;
     font-size: 1.1rem;
   }
-  
+  .search-nav-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
   .search-nav-row #search {
-    flex: 1;
+    order: 2;
     max-width: none;
   }
-  
+  nav {
+    order: 1;
+  }
+  #google_translate_element {
+    order: 1;
+  }
   #sidebar {
     position: absolute;
     z-index: 1000;
