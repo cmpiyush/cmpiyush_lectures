@@ -44,6 +44,21 @@ header{
     color:var(--link); 
     text-decoration:none
 }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+nav a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+nav .muted {
+  color: var(--muted);
+}
 
 #themes { 
     display: grid; 
