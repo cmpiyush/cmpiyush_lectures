@@ -10,9 +10,10 @@
 </head>
 <body class="d-flex flex-column vh-100">
   <!-- Header -->
-  <header>
-    <div class="wrap brand">
-      <h1>Social Work Notes</h1>
+<header>
+  <div class="wrap brand">
+    <h1>Social Work Notes</h1>
+    <div class="mobile-row d-md-none">
       <input type="text" id="search" class="form-control" placeholder="Search themes and topics...">
       <nav>
         <a href="index.html" aria-label="Themes">Themes</a>
@@ -20,7 +21,16 @@
         <a href="disclaimer.html" aria-label="Disclaimer">Disclaimer</a>
       </nav>
     </div>
-  </header>
+    <div class="desktop-row d-none d-md-flex">
+      <input type="text" id="search" class="form-control" placeholder="Search themes and topics...">
+      <nav>
+        <a href="index.html" aria-label="Themes">Themes</a>
+        <span class="muted">|</span>
+        <a href="disclaimer.html" aria-label="Disclaimer">Disclaimer</a>
+      </nav>
+    </div>
+  </div>
+</header>
   <!-- Landing Page (Themes Grid) -->
   <main id="themes" class="flex-fill container-fluid p-4">
   </main>
