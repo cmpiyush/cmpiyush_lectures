@@ -459,6 +459,8 @@ function clearSearchBox() {
 // Feedback form
 document.addEventListener('DOMContentLoaded', () => {
   const feedbackBtn = document.getElementById('feedback-btn');
+  const feedbackForm = document.querySelector('#feedback-form form');
+  
   if (feedbackBtn) {
     feedbackBtn.onclick = () => {
       const form = document.getElementById('feedback-form');
@@ -474,7 +476,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   }
+  
+  // Handle form submission
+  if (feedbackForm) {
+    feedbackForm.addEventListener('submit', () => {
+      setTimeout(() => {
+        // Clear form fields
+        feedbackForm.reset();
+        // Hide form
+        document.getElementById('feedback-form').style.display = 'none';
+      }, 100);
+    });
+  }
 });
+
 
  // Mobile sidebar toggle
 const sidebarToggle = document.getElementById('sidebar-toggle');
