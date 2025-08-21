@@ -29,15 +29,15 @@ Natural Increase/Rate of Natural Increase
 ![[India's Population Dist. by age.jpg | https://x.com/Stats_of_India/status/1648657419910934530/photo/1 ]]
 
 ##### Change in a population
-$$ \nabla P_{t} = r P_{0} $$
+ $$\nabla P_{t} = r P_{0} 
+ $$
 Where;
-$$\nabla P_{t}= P_{(t+1)}-P_{t}$$
-0=Base year
-t= years to calculate
-
-$$P(t)=P_{0}+rt P_{0}
-= P_{0}(1+rt)
+$$ \nabla P_{t}= P_{(t+1)}-P_{t}
 $$
+0 = Base year, 
+t = Years to calculate
+
+$$P(t)=P_{0}+rt P_{0} = P_{0}(1+rt)$$
 
 
 

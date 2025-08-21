@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disclaimer | Social Work Notes</title>
+  <meta name="description" content="Disclaimer for Social Work Notes: accuracy, citation, copyright and takedown policy.">
+  <style>
+    :root{
+      --bg:#ffffff; 
+      --fg:#1f2937; 
+      --muted:#6b7280; 
+      --card:#f8fafc; 
+      --link:#2563eb; 
+      --border:#e5e7eb;
+    }
+    *{
+        box-sizing:border-box
+    }
+    body{
+        margin:0; 
+        font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial; 
+        color:var(--fg); 
+        background:var(--bg); 
+        line-height:1.6
+    }
+    header{
+        border-bottom:1px solid var(--border); 
+        background:#fff
+    }
+    .wrap{
+        max-width:920px; 
+        margin:0 auto; 
+        padding:1.25rem
+    }
+    .brand{
+        display:flex; 
+        align-items:center; 
+        justify-content:space-between; 
+        gap:.75rem
+    }
+    .brand h1{
+        margin:0; 
+        font-size:1.25rem
+    }
+    .brand a{
+        color:var(--link); 
+        text-decoration:none
+    }
+    main{
+        padding:2rem 0
+    }
+    .card{
+        background:var(--card);
+        border:1px solid var(--border);
+        border-radius:14px;
+        padding:1.5rem
+    }
+    h2{
+        margin:.25rem 0 1rem;
+        font-size:1.4rem
+    }
+    h3{
+        margin:1.25rem 0 .5rem;
+        font-size:1.05rem
+    }
+    p{
+        margin:.5rem 0
+    }
+    ul{
+        margin:.25rem 0 .75rem 1.25rem
+    }
+    footer{
+        border-top:1px solid var(--border); 
+        color:var(--muted); 
+        font-size:.9rem
+    }
+    .muted{
+        color:var(--muted)
+    }
+    .notice{
+        background:#fff; 
+        border-left:4px solid var(--link); 
+        padding:.75rem 1rem; 
+        margin:1rem 0; 
+        border-radius:8px
+    }
+    .small{
+        font-size:.95rem
+    }
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0b0f19; --fg:#e5e7eb; --muted:#9ca3af; --card:#0f1628; --link:#60a5fa; --border:#1f2937;}
+      header, .card{background:#0f1628}
+      .notice{background:#0b0f19}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap brand">
+      <h1>Social Work Notes</h1>
+      <nav>
+        <a href="index.html" aria-label="Back to home">Browse Notes</a>
+        <span class="muted">|</span>
+        <a href="disclaimer.html" aria-label="Disclaimer">Disclaimer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="card">
+        <h2>Disclaimer</h2>
+        <p class="muted small">Last updated: <span id="last-updated"></span></p>
+
+        <div class="notice small">
+          These materials are provided to support learning and practice in social work. Please read this page carefully before using the site.
+        </div>
+
+        <h3>Purpose &amp; Scope</h3>
+        <p>
+          The notes and study materials on this website are <strong>compiled from multiple sources</strong>—including textbooks, research articles, lectures, and other educational resources—
+          and are intended <strong>solely for educational and reference purposes</strong>. They are not a substitute for original sources or professional advice.
+        </p>
+
+        <h3>Accuracy &amp; Limitations</h3>
+        <ul>
+          <li>While I strive for accuracy and clarity, <strong>errors, omissions, or misinterpretations may occur</strong>.</li>
+          <li>Content may become outdated as policies, laws, and best practices evolve.</li>
+          <li>Users should <strong>verify critical information</strong> with primary sources and recommended readings.</li>
+        </ul>
+
+        <h3>Citation &amp; Attribution</h3>
+        <ul>
+          <li>I aim to provide <strong>proper citations and references</strong> wherever possible.</li>
+          <li>If you are an author, researcher, or publisher and notice missing or incorrect attribution, please contact me; I will <strong>promptly correct, add citation, or remove</strong> the material on request.</li>
+        </ul>
+
+        <h3>Copyright &amp; Fair Use</h3>
+        <ul>
+          <li>All third-party content remains the <strong>intellectual property of its respective owners</strong>.</li>
+          <li>Excerpts may be quoted for educational purposes under <strong>fair use</strong>, with attribution where known.</li>
+          <li>Please <strong>do not redistribute</strong> materials from this site without permission from the copyright holders.</li>
+        </ul>
+
+        <h3>Feedback &amp; Corrections</h3>
+        <p>
+          I welcome corrections and suggestions. If you spot an error or wish to request a citation update or takedown, please reach out:
+        </p>
+        <ul>
+          <li>Email: <a href="mailto:cmpiyush2018@gmail.com">Email me</a></li>
+          <li>GitHub: <a href="https://github.com/cmpiyush/cmpiyush_lectures/issues" target="_blank" rel="noopener">Open an issue</a></li>
+          <!-- Or link to your Formspree contact form page -->
+        </ul>
+
+        <h3>Acceptance</h3>
+        <p>
+          By using this site, you acknowledge and agree to this disclaimer and the limitations described above.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© <span id="year"></span> Social Work Notes • <a href="disclaimer.html">Disclaimer</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Auto-fill dates
+    const now = new Date();
+    document.getElementById('year').textContent = now.getFullYear();
+    document.getElementById('last-updated').textContent = now.toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
+  </script>
+</body>
+</html>

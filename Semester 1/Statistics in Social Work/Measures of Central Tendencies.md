@@ -1,3 +1,0 @@
-- Mean
-- Median 
-- Mode
