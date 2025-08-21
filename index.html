@@ -4,6 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Social Work Notes</title>
+  <meta name="description" content="Social Work Notes: A collection of themes, subjects, and topics for social work students.">
+  <meta name="author" content="C. Piyush">
+  <meta name="keywords" content="social work notes, social work, social work themes">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <!-- Google translate -->
+  <meta name="google-translate-customization" content="your-key"></meta>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'en,hi',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 
+        'google_translate_element'
+      );
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then((reg) => console.log("Service Worker registered:", reg.scope))
+        .catch((err) => console.error("Service Worker failed:", err));
+    }
+  </script>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <link rel="stylesheet" href="style.css">
@@ -20,6 +49,7 @@
         <span class="muted">|</span>
         <a href="disclaimer.html" aria-label="Disclaimer">Disclaimer</a>
       </nav>
+      <div id="google_translate_element"></div>
     </div>
   </div>
 </header>

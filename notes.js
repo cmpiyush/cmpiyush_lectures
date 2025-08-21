@@ -490,7 +490,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
  // Mobile sidebar toggle
 const sidebarToggle = document.getElementById('sidebar-toggle');
 const sidebar = document.getElementById('sidebar');
