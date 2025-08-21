@@ -456,21 +456,25 @@ function clearSearchBox() {
   }
 }
 
-function showThemes() {
-  document.getElementById("themes").style.display = "grid";
-  const notesLayout = document.getElementById("notes-layout");
-  notesLayout.classList.add("d-none");
-  notesLayout.classList.remove("d-flex");
-}
-
 // Feedback form
-document.getElementById('feedback-btn').onclick = () => {
-  const form = document.getElementById('feedback-form');
-  document.getElementById('fb-theme').value = currentTheme;
-  document.getElementById('fb-subj').value = currentSubject;
-  document.getElementById('fb-topic').value = currentTopic;
-  form.style.display = form.style.display === 'none' ? 'block' : 'none';
-};
+document.addEventListener('DOMContentLoaded', () => {
+  const feedbackBtn = document.getElementById('feedback-btn');
+  if (feedbackBtn) {
+    feedbackBtn.onclick = () => {
+      const form = document.getElementById('feedback-form');
+      const isHidden = window.getComputedStyle(form).display === 'none';
+      
+      if (isHidden) {
+        document.getElementById('fb-theme').value = currentTheme;
+        document.getElementById('fb-subj').value = currentSubject;
+        document.getElementById('fb-topic').value = currentTopic;
+        form.style.display = 'block';
+      } else {
+        form.style.display = 'none';
+      }
+    };
+  }
+});
 
  // Mobile sidebar toggle
 const sidebarToggle = document.getElementById('sidebar-toggle');
