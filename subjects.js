@@ -224,16 +224,6 @@ export const structure = {
       "Social work profession as a change agent.md"
     ]
   },
-  "Global and Comparative Social Work": {
-    "Global Social Work": [
-      "Globalization and Social Work.md"
-    ],
-    "Comparative Social Work": [
-      "Comparative Social Work- Meaning, Characteristics and Importance.md",
-      "Social Work in Developed Countries.md",
-      "Social Work in Developing Countries.md"
-    ]
-  },
   "Human Behaviour and Social Environment": {
     "Human Behaviour": [
       "Human Behaviour- Meaning, Characteristics and Importance.md"
@@ -284,7 +274,7 @@ export const structure = {
       "Participatory Rural Appraisal.md"
     ]
   },
-  "Methods of Social Work": {
+  "Primary Methods of Social Work": {
     "Community Organisation": [
       "Community Organisation.md"
     ],
@@ -295,14 +285,39 @@ export const structure = {
     "Working with Individuals and Families": [
       "Social Work with Individuals- Meaning, Characteristics and Importance.md",
       "Case Work- Meaning, Characteristics and Importance.md"
-    ],
+    ]
+  },
+  "Secondary Methods of Social Work":{
     "Social Action": [
       "Social Action- Meaning, Characteristics and Importance.md",
       "Social Action in India.md"
     ],
     "Social Work Research": [
-      "Social Work Research- Meaning, Characteristics and Importance.md",
-      "Research Methods in Social Work.md"
+      "Research- Meaning, Characteristics and Importance.md",
+      "Social Research- Meaning and purpose.md", 
+      "Types of research-Pure, Applied, Basic, Action.md",
+      "Social Work Research- Meaning, Steps and its relevance to social work practice.md",
+      "Hypothesis-Meaning, Characteristics, Source and types.md", 
+      "Sampling Techniques.md",
+      "Sampling.md",
+      "Research Design - Meaning and Types.md",
+      "Scaling method - Bogardus & Likert.md",
+      "Tools of data collections.md",
+      "Observation, interview and case study.md",
+      "Sources of data: Primary and Secondary.md",
+      "Use of computer and internet in social work practice.md",
+      "Writing a research report.md",
+      "Social Work research report content and formats.md",
+      "Literature Review and Literature Survey.md",
+      "Problem Identification.md",
+      "Specification of Research Questions.md",
+      "Rationale and Study Objectives.md",
+      "Operational definitions.md",
+      "Research Methodology.md",
+      "Data Collection and Analysis.md",
+      "Interpretation of results and discussion.md",
+      "Conclusion.md",
+      "References.md"
     ],
     "Social Welfare Administration": [
       "Social Welfare Administration- Meaning, Characteristics and Importance.md",
@@ -348,34 +363,7 @@ export const structure = {
       "Social Legislation- Meaning, Characteristics and Importance.md"
     ]
   },
-  "Social Work Research & Statistics": {
-    "Research": [
-        "Research- Meaning, Characteristics and Importance.md",
-        "Social Research- Meaning and purpose.md", 
-        "Types of research-Pure, Applied, Basic, Action.md",
-        "Social Work Research- Meaning, Steps and its relevance to social work practice.md",
-        "Hypothesis-Meaning, Characteristics, Source and types.md", 
-        "Sampling Techniques.md",
-        "Sampling.md",
-        "Research Design - Meaning and Types.md",
-        "Scaling method - Bogardus & Likert.md",
-        "Tools of data collections.md",
-        "Observation, interview and case study.md",
-        "Sources of data: Primary and Secondary.md",
-        "Use of computer and internet in social work practice.md",
-        "Writing a research report.md",
-        "Social Work research report content and formats.md",
-        "Literature Review and Literature Survey.md",
-        "Problem Identification.md",
-        "Specification of Research Questions.md",
-        "Rationale and Study Objectives.md",
-        "Operational definitions.md",
-        "Research Methodology.md",
-        "Data Collection and Analysis.md",
-        "Interpretation of results and discussion.md",
-        "Conclusion.md",
-        "References.md"
-      ],
+  "Statistics for Social Work": {
       "Statistics": [
         "Statistics-Meaning, Signification, Uses and limitations.md",
         "Diagrammatic representation of data.md",
@@ -386,7 +374,7 @@ export const structure = {
         "Regression Analysis.md",
       ]
   },
-  "Social Work theories and perspectives": {
+  "Social Work Theory and Approaches": {
     "Cognitive-Behavioral Practice": [
       "Cognitive-Behavioral Theory.md",
       "Cognitive-Behavioral Techniques.md"

@@ -7,10 +7,27 @@ function generateThemes() {
   
   themesContainer.innerHTML = "";
   Object.keys(structure).forEach(theme => {
+    // Calculate counts
+    const subjects = structure[theme];
+    const courseCount = Object.keys(subjects).length;
+    const notesCount = Object.values(subjects).reduce((total, topics) => total + topics.length, 0);
+    
     const card = document.createElement("div");
     card.className = "card";
     card.dataset.theme = theme;
-    card.textContent = theme;
+    
+    // Create card content with counts
+    const title = document.createElement("card-title");
+    title.textContent = theme;
+    title.style.marginBottom = "10px";
+    
+    const stats = document.createElement("div");
+    stats.className = "text-muted small";
+    stats.innerHTML = `${courseCount} courses • ${notesCount} notes`;
+    
+    card.appendChild(title);
+    card.appendChild(stats);
+    
     card.addEventListener("click", () => {
       document.getElementById("themes").style.display = "none";
       const notesLayout = document.getElementById("notes-layout");
@@ -21,6 +38,7 @@ function generateThemes() {
     themesContainer.appendChild(card);
   });
 }
+
 
 // Theme selection logic
 document.addEventListener('DOMContentLoaded', () => {
