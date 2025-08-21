@@ -1,6 +1,6 @@
 :root{
     --muted:#6b7280; 
-    --link:#2563eb; 
+    --link:#000000; 
     --border:#e5e7eb;
 }
 
@@ -62,6 +62,7 @@ nav {
 nav a {
   color: var(--link);
   text-decoration: none;
+  font-weight: 500;
 }
 
 nav .muted {
@@ -89,7 +90,7 @@ nav .muted {
 }
 
 .card:hover { 
-    background: #484848; 
+    background: #303030; 
     color: #ffffff;
 }
 
@@ -134,11 +135,6 @@ nav .muted {
 .topics-container {
     margin-left: 15px;
     margin-bottom: 10px;
-}
-
-.search-highlight {
-    background: #ffff00;
-    color: #000000;
 }
 
 .search-result {

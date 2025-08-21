@@ -22,7 +22,7 @@ function generateThemes() {
     title.style.marginBottom = "10px";
     
     const stats = document.createElement("div");
-    stats.className = "text-muted small";
+    stats.className = "small";
     stats.innerHTML = `${courseCount} courses • ${notesCount} notes`;
     
     card.appendChild(title);
