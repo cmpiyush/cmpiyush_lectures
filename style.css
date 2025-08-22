@@ -238,9 +238,9 @@ nav .muted {
   }
 }
 footer{
-    border-top: 1px solid var(--border); 
-    color: var(--muted);
+    border-top: 1px solid var(--border);
     font-size: .9rem;
-    max-width: 920px;
-    margin: 0 auto;
+    width: 100%;
+    background-color: #6b7280;
+    color: white;
 }

@@ -1,5 +1,5 @@
 export const structure = {
-  "Basic Concepts in Social Science": {
+  "Foundations of Social Work": {
     "Philosophy": [
       "What is Philosophy.md",
       "Ethics and Morality.md",
@@ -9,16 +9,26 @@ export const structure = {
       "Philosophy of Science.md"
     ],
     "Sociology": [
+      "Theories of Society.md",
       "Functionalism.md",
+      "Society as a system of relationship, Social Structure and Social Processes.md",
+      "Socialization- Meaning, process and significance.md",
+      "Social Institutions- Meaning, characteristics and types.md",
+      "Social Stratification- Meaning, characteristics and types.md",
+      "Society and Culture.md",
+      "Social Control- Meaning, concept and agencies, characteristics and types.md",
+      "Social Problems- Meaning, characteristics and types.md",
       "Social Institutions.md",
-      "Social Change.md"
-    ],
+      "Social Change.md",
+      "Indian Society.md",
+      "Social change process in India.md"
+      ],
     "Political Science": [
       "Political Theories.md",
       "Political Systems.md",
       "Democracy.md"
     ],
-    "Economics": [
+    "Political Economy": [
       "Microeconomics.md",
       "Macroeconomics.md",
       "Development Economics.md"
@@ -35,6 +45,45 @@ export const structure = {
       "Cultural Anthropology.md",
       "Social Anthropology.md",
       "Physical Anthropology.md"
+    ]
+  },
+  "Introduction to Social Work": {
+    "Concept Objective and Scope":[
+        "The Concept of Social Work.md", 
+        "Principles, values and philosophy of  Social Work.md",
+        "Goals and Functions of Social Work.md",
+        "System and Integrated Approach to  Social Work Practice.md",
+        "Attributes of a profession.md",
+        "Attributes of a professional social worker.md",
+        "Role and functions of social work profession.md",
+        "Professional Code of Ethics.md",
+        "Challenges of Social Work as a Profession.md",
+        "Interface between Professional and Voluntary Social Work.md",
+        "Units of social work intervention and dynamics.md",
+        "Individual and Family.md",
+        "Group, organizations and communities.md",
+        "Neo-liberalism and globalization.md",
+        "Post modernism.md",
+        "Feminism.md",
+        "Resurgence of civil society.md",
+        "Ideology of Non-Government organization.md"
+      ]
+  },
+  "History and Evolution of Social Work": {
+    "India": [
+      "Historical Development of Social Work in India.md"
+    ],
+    "USA": [
+      "History of Social Work in the World.md"
+    ],
+    "UK": [
+      "Evolution of Social Work as a Profession.md"
+    ],
+    "History of Social Work": [
+      "History of Social Work.md"
+    ],
+    "Social work profession as a change agent": [
+      "Social work profession as a change agent.md"
     ]
   },
   "Contemporary Issues in Social Work": {
@@ -123,7 +172,7 @@ export const structure = {
         "Immigration in India.md"
       ]
   },
-  "Fields of Practice": {
+  "Fields of Social Work Practice": {
     "Family, Child & Youth Welfare": [
       "Child Welfare- Meaning, Characteristics and Importance.md",
       "Child Welfare in India.md"
@@ -171,58 +220,6 @@ export const structure = {
       "Post-Disaster Rehabilitation and mitigation of negative effects.md",
       "Intervening Parties in Disaster Management.md"
       ]
-  },
-  "Foundation of Social Work": {
-    "Indian Contemporary Society": [
-        "Society as a system of relationship, Social Structure and Social Processes.md",
-        "Socialization- Meaning, process and significance.md",
-        "Social Institutions- Meaning, characteristics and types.md",
-        "Social Stratification- Meaning, characteristics and types.md",
-        "Society and Culture.md",
-        "Social Control- Meaning, concept and agencies, characteristics and types.md",
-        "Social Problems- Meaning, characteristics and types.md",
-        "Theories of Society.md",
-        "Indian Society.md",
-        "Social change.md",
-        "Social change process in India.md"
-      ],
-    "Concept Objective and Scope":[
-        "The Concept of Social Work.md", 
-        "Principles, values and philosophy of  Social Work.md",
-        "Goals and Functions of Social Work.md",
-        "System and Integrated Approach to  Social Work Practice.md",
-        "Attributes of a profession.md",
-        "Attributes of a professional social worker.md",
-        "Role and functions of social work profession.md",
-        "Professional Code of Ethics.md",
-        "Challenges of Social Work as a Profession.md",
-        "Interface between Professional and Voluntary Social Work.md",
-        "Units of social work intervention and dynamics.md",
-        "Individual and Family.md",
-        "Group, organizations and communities.md",
-        "Neo-liberalism and globalization.md",
-        "Post modernism.md",
-        "Feminism.md",
-        "Resurgence of civil society.md",
-        "Ideology of Non-Government organization.md"
-      ]
-  },
-  "History and Evolution of Social Work": {
-    "India": [
-      "Historical Development of Social Work in India.md"
-    ],
-    "USA": [
-      "History of Social Work in the World.md"
-    ],
-    "UK": [
-      "Evolution of Social Work as a Profession.md"
-    ],
-    "History of Social Work": [
-      "History of Social Work.md"
-    ],
-    "Social work profession as a change agent": [
-      "Social work profession as a change agent.md"
-    ]
   },
   "Human Behaviour and Social Environment": {
     "Human Behaviour": [
