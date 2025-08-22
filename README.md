@@ -1,6 +1,7 @@
-# C M Piyush Class Notes
-Markdown notes management. Notes are divided into Semester, Subjects, Units and Topics.
-It is an static websites built with languages HTML, CSS, JS and Markdown.
+# Social Work Notes
+Markdown notes management. 
+Notes are categorised into Domains, courses and Topics.
+It is a static website built with HTML, CSS, JS and Markdown.
 Feedback is collected through Formspree.
-### Do not send unnecessary feedback
+[! Do not span the email, please.]
 
