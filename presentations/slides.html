@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Slides</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/default.min.css">
+  <style>
+    .reveal .slides { text-align: left; }
+    .toplink { position: fixed; top: 10px; left: 10px; z-index: 99; }
+  </style>
+</head>
+<body>
+  <a class="toplink" href="#" onclick="window.close()">✖ Close</a>
+  <div class="reveal">
+    <div class="slides">
+      <!-- We'll inject markdown once fetched -->
+      <section id="md"
+        data-markdown
+        data-separator="^\n##\s+"               <!-- New slide on H2 -->
+        data-separator-vertical="^\n###\s+"      <!-- Vertical stack on H3 -->
+        data-separator-notes="^Note:"
+        data-charset="utf-8">
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+
+  <script>
+    // pull same raw content as in app.js
+    const CONFIG = {
+      owner: "YOUR_GH_USERNAME",
+      repo: "YOUR_NOTES_REPO_NAME",
+      branch: "main",
+      rootPath: "",
+    };
+    const GH_RAW = (path) =>
+      `https://raw.githubusercontent.com/${CONFIG.owner}/${CONFIG.repo}/${encodeURIComponent(CONFIG.branch)}/${path}`;
+
+    function getParam(name) {
+      const u = new URL(location.href);
+      return u.searchParams.get(name);
+    }
+
+    async function loadMarkdown() {
+      let path = getParam("path");
+      if (!path) {
+        document.getElementById("md").innerHTML = "<h2>No note path provided.</h2>";
+        return;
+      }
+      path = decodeURIComponent(path);
+      const full = CONFIG.rootPath ? `${CONFIG.rootPath}/${path}` : path;
+
+      const r = await fetch(GH_RAW(full));
+      if (!r.ok) {
+        document.getElementById("md").innerHTML = `<h2>Failed to load note (${r.status}).</h2>`;
+        return;
+      }
+      let md = await r.text();
+
+      // Simple Obsidian image embed fix: ![[img.png]] -> ![](url)
+      const noteDir = path.split("/").slice(0, -1).join("/");
+      md = md.replace(/!\[\[([^|\]]+?)(\|[^|\]]+)?\]\]/g, (m, target) => {
+        const resolved = resolveRelative(noteDir, target.trim());
+        const url = GH_RAW(CONFIG.rootPath ? `${CONFIG.rootPath}/${resolved}` : resolved);
+        return `![](${url})`;
+      });
+
+      // Optional: you could auto-insert a top-level title slide if the note starts with # Title
+      // (Reveal handles top-level H1 fine, we just rely on separators H2/H3)
+
+      const sec = document.getElementById("md");
+      sec.setAttribute("data-markdown", "");
+      sec.textContent = md; // important: textContent, not innerHTML
+
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        plugins: [ RevealMarkdown, RevealHighlight ]
+      });
+    }
+
+    function resolveRelative(baseDir, rel) {
+      if (!baseDir) return rel;
+      const base = baseDir.split("/").filter(Boolean);
+      const parts = rel.split("/").filter(Boolean);
+      const stack = [...base];
+      for (const p of parts) {
+        if (p === ".") continue;
+        if (p === "..") stack.pop();
+        else stack.push(p);
+      }
+      return stack.join("/");
+    }
+
+    loadMarkdown();
+  </script>
+</body>
+</html>

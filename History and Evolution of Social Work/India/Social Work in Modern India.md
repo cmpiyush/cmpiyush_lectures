@@ -53,7 +53,6 @@
 - Mohd. Ahmed Khan vs Shah Bano Begum And Ors on 23 April, 1985: Supreme Court delivered a judgment in favour of providing maintenance to an aggrieved divorced Muslim woman
 - 1990 OBC Reservation
 - LPG
-- 
 ###### Human Rights:
 - Consciousness for human rights were there in the society. 
 A committee under Motilal Nehru was appointed by the National Congress to study the fundamental rights. It is interesting to note that the Constitution 2f the Republic of India, enacted in 1950, incorporated ten of the nineteen rights enumerated in the Motilal Nehru Committee Report, 1928.
