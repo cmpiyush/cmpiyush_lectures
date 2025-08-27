@@ -1,7 +1,7 @@
 // ======== CONFIGURE THIS ========
 const CONFIG = {
   owner: "cmpiyush",
-  repo: "cmpiyush.github.io",
+  repo: "cmpiyush_lectures.github.io",
   branch: "main",
   rootPath: "History and Evolution of Social Work", // e.g., "notes" if your notes live in /notes
 };
