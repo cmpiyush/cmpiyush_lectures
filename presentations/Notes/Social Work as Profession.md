@@ -1,7 +1,7 @@
 # Attributes of a profession
 ## Profession
 A profession is defined as a calling that demands specific knowledge, practice, or skills, and is an occupation with an ethical component devoted to promoting human and social welfare. It is generally respected as an honourable form of employment, suitable for educated individuals or those with technical skills who have undergone specific training
-## Key Criteria and Characteristics of a Profession
+# Key Criteria and Characteristics of a Profession
 - **Provision of Needed Service**
 - **Advancement of Knowledge**
 - **Protection of Members**
@@ -18,14 +18,14 @@ A profession is defined as a calling that demands specific knowledge, practice, 
 - **Legal Reinforcement of Standards**
 - **Professional Career Assurance**
 - **Practical Orientation**
-### Abraham Flexner's Six Attributes of Professions (1915)
+# Abraham Flexner's Six Attributes of Professions (1915)
 - **Intellectual operations with large individual responsibility**
 - **Basis in science and learning**
 - **Knowledge for practical ends**
 - **Educationally communicable technique**
 - **Tendency to self-organize**
 - **Altruistic motivation**
-### Ernest Greenwood's Attributes of a Profession (1957)
+# Ernest Greenwood's Attributes of a Profession (1957)
 - **Systematic body of knowledge**
 - **Community sanction**
 - **Authority or credibility**.
