@@ -1,0 +1,12 @@
+## Challenges and Identity Issues:
+• **Struggle for Professional Status:** Social workers have historically struggled to establish themselves as a profession, facing challenges in defining their identity and how others perceive them.
+**• Diverse Roles:** The variety of roles (caseworkers, community workers, activists, policy analysts, administrators) makes it challenging to integrate diverse views into a clear professional definition.
+**• Societal Ambivalence:** Society's ambivalence towards social work, rooted in humanitarianism but hesitant to shift power/resources, has hindered a clear mandate for publicly funded services.
+**• Professional Boundary Issues:** The dual focus on individual/group functioning and social policies has led to persistent professional boundary and identity issues.
+**• Broad Scope and Specialization:** The vast scope of knowledge and skills, along with increasing specialization, can threaten the unity of the profession if there is no coherent classification scheme.
+**• Cause vs. Function Debate:** Fluctuation in emphasis between "cause or function," "environmental reform or individual change," and "social treatment or direct service" has resulted in a "confusing identity".
+**• Debate on Professional Criteria:** Scholars have debated for decades whether social work fully meets criteria like those proposed by Flexner and Greenwood.
+**• Indigenization in India:** In India, there has been a shift toward meeting social development needs, with less attention to casework, and a need for culturally relevant, preventive, and macro-based practice.
+• **Future Challenges:** Future challenges include identifying new needs, political social work in times of limited resources, intense needs of vulnerable populations, increased demand for health/mental health services, and disparities in access to care.
+• **Globalization Concerns:** Concerns exist about whether social work truly remains at the centre of addressing poverty and exclusion globally, or if it functions predominantly with a Western cultural orientation influenced by free market forces.
+• **"Unintegrated Professional Identity":** Including all types of practice under the social work rubric has resulted in an unintegrated professional identity, though common objectives (social change, problem-solving, empowerment) based on shared values and ethics hold the profession together.
