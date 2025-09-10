@@ -1,2 +1,2 @@
-## What is Philosophy?
+## Ontology
 Philosophy is a human quest.

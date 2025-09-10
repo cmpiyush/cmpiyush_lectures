@@ -1,59 +1,5 @@
-#### Why Mortality?
-- *Helps to understand widowhood, orphan and also social, economic and political life
-- _how far a society is healthy and direction in which it is moving_
-- _Life saving facility
-- _Projection of the population_
-- _Comparison of the progress_
-- Classifying the cause of disease
-- More death can lead to change the attitude of loved ones towards life.
-- High mortality can reduce the ambition of the parents towards their children.
-- May lead to rise of superstitious belief
-#### Primary Source of Data
-- Death registration
-- Hospital
-- Cremation Record 
-#### Limitation of Mortality Data
-- Unreliable when large scale mortality happens due to war or epidemic.
-- False reporting of cause of death/time of death
-- Unrecorded deaths
-- Different definition of mortality particularly a child:- In Mexico and Cuba child died within 24hrs are considered as abortion
-#### Mortality Rate
-##### 1. Crude Death Rate
-$$ CDR = \frac {D}{P} $$
-Where;
-_D= Deaths registered in a year
-P= Population of an area in that year $$ P = P_{1} +{1/2}{(P_{2}}-{P_{1})}$$
-K= 100000_
-###### Advantage
-- It becomes possible to reduce the death rate into one figure only
-- It is very easy and can be understood by common man
-###### Disadvantage
-- Extreme cases are adversely affect the rate
-- Difficult to get reliable mortality data
-#### 2. Age Specific Death Rate
-$$ ASDR = \frac {No.\ of\ death\ in\ a\ specific\ age\ or\ age\ group}{Total\ Polation\ in\ that\ age\ group }
-$$
-#### 3. Standardised or Adjusted Death Rate
-##### Direct Standardisation
-$$ Standarised\ Death\ Rate = \frac {P_{s}*D_{1}}{\sum P}
-$$
-Where,
-P$_s$ = Standard Population of the age group.
-D$_1$ = Age specific death rate of the population in age group.
-
-#### 4. Infant Death Rate
-Infant Mortality Rate measures the risk of dying during the first year of life. Probability of a dying for an infant within a year of its birth.
-$$ IMR =\frac {D_{0}}{B}X1000$$
-
-
-#### 5. Cause specific Death Rate
-Similar to age specific death rate. Instead of age death are counted cause of death.
-
-[Top 10 causes of death can be view on WHO website](https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates/ghe-leading-causes-of-death)
-
-
-### Life Expectancy
 ### Life table
+
 | Age interval (x to x+n) | lxl_x (No. alive at start) | dxd_x (Deaths in interval) | qxq_x (Prob. of dying) | pxp_x (Prob. of surviving) | LxL_x (Person-years lived) | TxT_x (Total person-years left) | exe_x (Life expectancy at age x) |
 | ----------------------- | -------------------------- | -------------------------- | ---------------------- | -------------------------- | -------------------------- | ------------------------------- | -------------------------------- |
 | 0–4                     | 100,000                    | 8,000                      | 0.080                  | 0.920                      | 96,000                     | 6,800,000                       | 68.0                             |
@@ -76,14 +22,13 @@ Similar to age specific death rate. Instead of age death are counted cause of de
 | 85+                     | 28,800                     | 28,800                     | 1.000                  | 0.000                      | 144,000                    | 283,550                         | 9.9                              |
 ## Explanation of Columns
 
-- **xxx** = starting age of interval
-- *l$_x$ = number of people alive at start (radix usually 100,000 at birth)
-- **dxd_xdx​** = number dying in the age interval
-- **qxq_xqx​** = probability of dying between ages xxx and x+nx+nx+n
-- **pxp_xpx​** = probability of surviving the interval (px=1−qxp_x = 1 - q_xpx​=1−qx​)
-- **LxL_xLx​** = total person-years lived in interval (approximation: midpoint of deaths)
-- **TxT_xTx​** = cumulative total years lived by the cohort beyond age xxx
-- **exe_xex​** = life expectancy at age xxx (Tx/lxT_x / l_xTx​/lx​)
+- Col 1: Starting age of interval
+- Col 2: Number of people alive at start (radix usually 100,000 at birth) *l$_x$
+- Col 3: Number dying in the age interval (**dxd_xdx​**)
+- Col 4: **q$_x$q_xqx​** = probability of dying between ages xxx and x+nx+nx+n
+- Col 5: **pxp_xpx​** = probability of surviving the interval (px=1−qxp_x = 1 - q_xpx​=1−qx​)
+- Col 6: **LxL_xLx​** = total person-years lived in interval (approximation: midpoint of deaths)
+- Col 7: **TxT_xTx​** = cumulative total years lived by the cohort beyond age xxx
+- Col 8: **exe_xex​** = life expectancy at age xxx (Tx/lxT_x / l_xTx​/lx​)
 ##### Assumptions
 - There is no migration
-
