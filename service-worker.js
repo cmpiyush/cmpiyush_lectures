@@ -1,4 +1,4 @@
-const CACHE_NAME = "sw-notes-cache-v1";
+const CACHE_NAME = "sw-notes-cache-v2";
 const urlsToCache = [
   "/",
   "/index.html",
