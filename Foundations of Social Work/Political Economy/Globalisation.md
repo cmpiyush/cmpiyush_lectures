@@ -6,7 +6,7 @@
 - Foreign trade allows capitalists to secure a higher rate of return than that available at home.
 - *"Neo-colonisation denotes the strategy of a colonial power which does not maintain its political domination in a foreign territory, but continues its economic exploitation by using it as a source of cheap labour and raw material as well as big market for its industrial products."* (p.193)
 - To negotiate with capitalist economy, countries had to make international cooperation Ex: Organisation of the Petroleum Exporting Countries (OPEC, 1960)
--  Chile, Brazil, Panama and other latin American countries continued to be raw material supplier to the North America.
+-  Chile, Brazil, Panama and other Latin American countries continued to be raw material supplier to the North America.
 ##### Power Blocs
 - After second world war, world was divided into two big ideological camps; Capitalistic camp led by USA and Communist camp led by USSR
 - NATO-1949
@@ -54,5 +54,9 @@
 - It is last stage of international Capitalism
 - Globalisation is deepening the divide between the metropolitan and peripheral countries
 - It is an instrument of neo-colonialism
+#### Agency of Globalised Economy
+- General Agreement on Tariffs and Trade (GATT) in 1947 which promoted free trade globally
+- 1986: Single European Act
+- 1992: North American Free Trade Agreement (NAFTA)
 ##### Sources
 1. Gauba, OP. _An Introduction to Political Theory_. Macmillan Publishers India Ltd, 2009.

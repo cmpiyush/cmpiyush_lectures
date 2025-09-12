@@ -76,6 +76,7 @@ legal scholars affiliated with the ‘Freiburg School’ to refer to their moder
 - Regulations on these activities curtails their freedom without fulfilling their genuine needs.
 - In the economic sphere, market exemplifies genuine democracy.
 
+
 **Sources**
 1. https://www.imf.org/external/pubs/ft/fandd/2016/06/pdf/ostry.pdf
 2. https://egyankosh.ac.in/bitstream/123456789/71847/1/Unit-8.pdf
